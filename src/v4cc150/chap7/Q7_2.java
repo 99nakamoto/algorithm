@@ -1,11 +1,18 @@
 package v4cc150.chap7;
 
+import java.util.List;
+
 public class Q7_2 {
 
 	// Imagine you have a call center with three levels of employees
 
 	public static class CallHandler {
+
 		private static final CallHandler instance = new CallHandler();
+
+		static final int LEVEL = 3;
+		List<List<Employee>> employeeLevels;
+		List<List<Call>> callQueues;
 
 		private CallHandler() {
 		}
@@ -13,28 +20,41 @@ public class Q7_2 {
 		public static CallHandler getInstance() {
 			return instance;
 		}
-		
-		void dispatchCall(Call call) {
-			
+
+		public Employee getHandler(Call c) {
+			return c.handler;
 		}
-		
-		void getNextCall(Employee )
+
+		void dispatchCall(Call c) {
+			Employee emp = getHandler(c);
+			if (emp != null) {
+				emp.receive(c);
+				c.handler = emp;
+			} else {
+				c.reply("Please wait a moment");
+				callQueues.get(c.rank).add(c);
+			}
+		}
 	}
 
 	public class Call {
 		int rank = 0;
+		Employee handler;
 
 		public void reply(String msg) {
 		}
 
 		public void disconnect() {
 		}
+
+		public void setHandler(Employee e) {
+			handler = e;
+		}
 	}
 
 	abstract class Employee {
-		CallHandler callHandler;
 		int rank;
-		boolean free;
+		Call currentCall = null;
 
 		public Employee(int val) {
 			rank = val;
@@ -50,9 +70,6 @@ public class Q7_2 {
 
 		void escalete(Call c) {
 			c.rank = c.rank + 1;
-			callHandler.dispatchCall(c);
-			free = true;
-			callHandler.getNextCall(this);
 		}
 	}
 
