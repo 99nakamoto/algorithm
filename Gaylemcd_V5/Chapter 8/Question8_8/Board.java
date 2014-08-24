@@ -108,7 +108,7 @@ public class Board {
 		}
 	}
 	
-	public void updateScore(Color newColor, int newPieces) {
+	private void updateScore(Color newColor, int newPieces) {
 		/* If we added x pieces of a color, then we actually removed x - 1 pieces of the other
 		 * color. The -1 is because one of the new pieces was the just-placed one.
 		 */
