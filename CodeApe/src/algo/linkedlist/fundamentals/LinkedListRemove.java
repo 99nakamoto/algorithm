@@ -1,6 +1,6 @@
 package algo.linkedlist.fundamentals;
 
-import cc150.common.ListNode;
+import common.ListNode;
 
 public class LinkedListRemove {
 

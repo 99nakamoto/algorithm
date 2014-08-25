@@ -1,6 +1,6 @@
 package v5solution.chapter2;
 
-import cc150.common.ListNode;
+import common.ListNode;
 
 /**
  * Write code to partition a linked list around a value x, such that all nodes

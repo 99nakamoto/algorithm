@@ -8,7 +8,8 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import cc150.common.TestBase;
+import common.TestBase;
+
 import v5solution.chapter7.Question6;
 import v5solution.chapter7.Question6.Line;
 import v5solution.chapter7.Question6.Point;

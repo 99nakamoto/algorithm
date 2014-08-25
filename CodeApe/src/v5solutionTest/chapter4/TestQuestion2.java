@@ -5,9 +5,10 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import common.DirectedGraph;
+import common.TestBase;
+
 import v5solution.chapter4.Question2;
-import cc150.common.DirectedGraph;
-import cc150.common.TestBase;
 
 /**
  * Given a directed graph, design an algorithm to find out whether there is a

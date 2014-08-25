@@ -3,7 +3,7 @@ package algo.questions;
 import java.util.ArrayList;
 import java.util.List;
 
-import cc150.common.Common;
+import common.Common;
 
 public class ReplaceQuestionMarkWIthNumber {
 
