@@ -1,4 +1,4 @@
-package algo.questions;
+package algo.questions.trees;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

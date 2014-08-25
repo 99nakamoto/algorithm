@@ -1,4 +1,4 @@
-package algo.questions;
+package algo.questions.trees;
 
 import common.TreeNode;
 
