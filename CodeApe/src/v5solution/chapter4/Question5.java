@@ -1,6 +1,6 @@
 package v5solution.chapter4;
 
-import cc150.common.TreeNode;
+import common.TreeNode;
 
 /**
  * Implement a function to check if a binary tree is a binary search tree.

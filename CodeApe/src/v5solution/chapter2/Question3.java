@@ -1,6 +1,6 @@
 package v5solution.chapter2;
 
-import cc150.common.ListNode;
+import common.ListNode;
 
 /**
  * Implement an algorithm to delete a node in the middle of a singly linked

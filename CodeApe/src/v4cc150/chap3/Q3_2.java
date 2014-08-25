@@ -1,6 +1,6 @@
 package v4cc150.chap3;
 
-import cc150.common.ListNode;
+import common.ListNode;
 
 public class Q3_2 {
 

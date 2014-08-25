@@ -4,7 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import cc150.common.TestBase;
+import common.TestBase;
+
 import v5solution.chapter18.Question12;
 
 /**

@@ -2,7 +2,8 @@ package v5solutionTest.chapter9;
 
 import org.junit.Test;
 
-import cc150.common.TestBase;
+import common.TestBase;
+
 import v5solution.chapter9.Question11;
 
 /**
