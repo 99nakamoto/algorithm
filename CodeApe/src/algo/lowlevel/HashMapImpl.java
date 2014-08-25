@@ -71,9 +71,9 @@ public class HashMapImpl {
 		System.out.println(map.get(1));
 		System.out.println(map.get(2));
 		System.out.println(map.get(3));
-		map.put(1, "Spider Man");
+		map.put(1, "aaa second time");
+		map.put(3, "ccc second time");
 		map.put(4, "dddddd");
-		map.put(3, "Peter Parker");
 		System.out.println(map.get(1));
 		System.out.println(map.get(2));
 		System.out.println(map.get(3));
