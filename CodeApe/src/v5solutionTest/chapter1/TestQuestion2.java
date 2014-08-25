@@ -6,7 +6,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
-import cc150.common.TestBase;
+import common.TestBase;
+
 import v5solution.chapter1.Question2;
 
 /**

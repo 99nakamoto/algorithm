@@ -5,8 +5,9 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import common.ListNode;
+
 import v4cc150.chap2.Q2_1;
-import cc150.common.ListNode;
 
 public class Q2_1_Test {
 

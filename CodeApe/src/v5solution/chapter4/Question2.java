@@ -3,7 +3,7 @@ package v5solution.chapter4;
 import java.util.Iterator;
 import java.util.Stack;
 
-import cc150.common.DirectedGraph;
+import common.DirectedGraph;
 
 /**
  * Given a directed graph, design an algorithm to find out whether there is a

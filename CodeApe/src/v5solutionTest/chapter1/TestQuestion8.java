@@ -5,7 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import cc150.common.TestBase;
+import common.TestBase;
+
 import v5solution.chapter1.Question8;
 
 public class TestQuestion8 extends TestBase {

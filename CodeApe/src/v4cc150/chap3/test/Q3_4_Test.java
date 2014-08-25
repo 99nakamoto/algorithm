@@ -5,8 +5,9 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import common.MyStack;
+
 import v4cc150.chap3.Q3_4;
-import cc150.common.MyStack;
 
 public class Q3_4_Test {
 

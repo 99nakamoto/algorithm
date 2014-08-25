@@ -1,6 +1,6 @@
 package v5solution.chapter4;
 
-import cc150.common.TreeNode;
+import common.TreeNode;
 
 /**
  * Design an algorithm and write code to find the first common ancestor of two

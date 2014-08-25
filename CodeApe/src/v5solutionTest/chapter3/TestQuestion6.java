@@ -6,7 +6,8 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import cc150.common.TestBase;
+import common.TestBase;
+
 import v5solution.chapter3.Question6;
 
 /**

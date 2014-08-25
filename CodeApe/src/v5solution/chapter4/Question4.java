@@ -3,7 +3,7 @@ package v5solution.chapter4;
 import java.util.ArrayList;
 import java.util.List;
 
-import cc150.common.TreeNode;
+import common.TreeNode;
 
 /**
  * Given a binary search tree, design an algorithm which creates a linked list
