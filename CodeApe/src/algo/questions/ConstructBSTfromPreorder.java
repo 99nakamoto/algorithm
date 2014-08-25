@@ -20,9 +20,7 @@ public class ConstructBSTfromPreorder {
 
 	private TreeNode helper(int[] A, int min, int max) {
 		int len = A.length;
-		if (p >= len) {
-			return null;
-		} else if (A[p] < min || A[p] > max) {
+		if (p >= len || A[p] < min || A[p] > max) {
 			return null;
 		}
 		TreeNode root = new TreeNode(A[p]);
