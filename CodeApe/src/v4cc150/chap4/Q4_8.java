@@ -2,7 +2,7 @@ package v4cc150.chap4;
 
 import java.util.LinkedList;
 
-import cc150.common.TreeNode;
+import common.TreeNode;
 
 public class Q4_8 {
 

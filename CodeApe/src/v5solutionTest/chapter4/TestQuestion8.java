@@ -5,9 +5,10 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import common.TestBase;
+import common.TreeNode;
+
 import v5solution.chapter4.Question8;
-import cc150.common.TestBase;
-import cc150.common.TreeNode;
 
 public class TestQuestion8 extends TestBase {
 

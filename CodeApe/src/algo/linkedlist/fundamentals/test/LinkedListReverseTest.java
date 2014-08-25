@@ -5,8 +5,9 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import common.ListNode;
+
 import algo.linkedlist.fundamentals.LinkedListReverse;
-import cc150.common.ListNode;
 
 public class LinkedListReverseTest {
 

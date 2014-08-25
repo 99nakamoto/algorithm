@@ -6,7 +6,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import cc150.common.TestBase;
+import common.TestBase;
+
 import v5solution.chapter3.Question4;
 import v5solution.chapter3.Question4.Action;
 

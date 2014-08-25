@@ -1,6 +1,6 @@
 package v5solution.chapter2;
 
-import cc150.common.ListNode;
+import common.ListNode;
 
 /**
  * You have two numbers represented by a linked list, where each node contains a

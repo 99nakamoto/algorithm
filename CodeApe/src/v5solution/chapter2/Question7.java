@@ -2,7 +2,7 @@ package v5solution.chapter2;
 
 import java.util.Stack;
 
-import cc150.common.ListNode;
+import common.ListNode;
 
 /**
  * Implement a function to check if a linked list is a palindrome.

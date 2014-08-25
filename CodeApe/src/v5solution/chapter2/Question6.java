@@ -1,6 +1,6 @@
 package v5solution.chapter2;
 
-import cc150.common.ListNode;
+import common.ListNode;
 
 /**
  * Given a circular linked list, implement an algorithm which returns the node
