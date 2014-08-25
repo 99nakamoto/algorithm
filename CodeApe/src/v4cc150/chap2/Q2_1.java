@@ -2,7 +2,7 @@ package v4cc150.chap2;
 
 import java.util.HashSet;
 
-import cc150.common.ListNode;
+import common.ListNode;
 
 public class Q2_1 {
 

@@ -6,9 +6,10 @@ import java.util.List;
 
 import org.junit.Test;
 
+import common.TestBase;
+import common.TreeNode;
+
 import v5solution.chapter4.Question4;
-import cc150.common.TestBase;
-import cc150.common.TreeNode;
 
 /**
  * Given a binary search tree, design an algorithm which creates a linked list

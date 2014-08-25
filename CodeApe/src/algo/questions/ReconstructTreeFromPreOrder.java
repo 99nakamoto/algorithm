@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import cc150.common.ListNode;
-import cc150.common.TreeNode;
+import common.ListNode;
+import common.TreeNode;
 
 public class ReconstructTreeFromPreOrder {
 

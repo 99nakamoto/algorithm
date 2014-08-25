@@ -6,7 +6,8 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import cc150.common.TestBase;
+import common.TestBase;
+
 import v5solution.chapter9.Question7;
 
 public class TestQuestion7 extends TestBase {

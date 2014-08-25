@@ -1,6 +1,6 @@
 package v5solution.chapter4;
 
-import cc150.common.TreeNode;
+import common.TreeNode;
 
 /**
  * Given a sorted (increasing order) array, write an algorithm to create a

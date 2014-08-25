@@ -1,6 +1,6 @@
 package v5solution.chapter4;
 
-import cc150.common.TreeNode;
+import common.TreeNode;
 
 /**
  * You have two very large binary trees: T1, with millions of nodes, and T2,

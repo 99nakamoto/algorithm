@@ -1,6 +1,6 @@
 package algo.questions;
 
-import cc150.common.TreeNode;
+import common.TreeNode;
 
 public class ConstructBSTfromPreorder {
 

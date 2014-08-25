@@ -4,9 +4,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import common.TestBase;
+import common.TreeNode;
+
 import v5solution.chapter4.Question7;
-import cc150.common.TestBase;
-import cc150.common.TreeNode;
 
 /**
  * Design an algorithm and write code to find the first common ancestor of two
