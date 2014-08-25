@@ -9,8 +9,7 @@ import java.util.Stack;
 
 public class JobScheduler {
 	/*
-	 * deps[id]表示任务id所依赖的任务 如果存在合法的任务完成序列，返回true，否则返回false
-	 * 合法的任务序列请存放在参数result中（已经分配空间）
+	 * deps[id]
 	 */
 	public boolean jobSchedule(Map<Integer, List<Integer>> deps, int n,
 			int[] result) {
