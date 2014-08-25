@@ -9,7 +9,7 @@ import cc150.common.TreeNode;
 
 public class ReconstructTreeFromPreOrder {
 
-	ListNode list = null;
+	ListNode curNode = null;
 
 	public static void main(String[] args) {
 		ReconstructTreeFromPreOrder ins = new ReconstructTreeFromPreOrder();
@@ -23,7 +23,7 @@ public class ReconstructTreeFromPreOrder {
 
 	private void test(ListNode node, int level) {
 		System.out.println("Test: ");
-		this.list = node;
+		this.curNode = node;
 		TreeNode tree = constructTree();
 		ArrayList<ArrayList<Integer>> levelOrder = printTree(tree, level);
 		for (int i = 0; i < level; i++) {
@@ -42,11 +42,11 @@ public class ReconstructTreeFromPreOrder {
 	}
 
 	private TreeNode constructTree() {
-		if (list == null) {
+		if (curNode == null) {
 			return null;
 		}
-		TreeNode root = new TreeNode(list.val);
-		list = list.next;
+		TreeNode root = new TreeNode(curNode.val);
+		curNode = curNode.next;
 
 		if (root.val == 1) {
 			root.left = constructTree();
