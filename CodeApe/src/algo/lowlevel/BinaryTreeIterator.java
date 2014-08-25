@@ -8,8 +8,8 @@ import cc150.common.TreeNode;
 public class BinaryTreeIterator {
 
 	// written by me
-	// ref: http://blog.csdn.net/buhui912/article/details/10226433
-	// but this code uses parent pointer
+	// I refered to: http://blog.csdn.net/buhui912/article/details/10226433
+	// But the above code uses parent pointer, so I changed the logic
 
 	private Stack<TreeNode> stack = new Stack<TreeNode>();
 
