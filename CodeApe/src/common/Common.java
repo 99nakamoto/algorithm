@@ -34,25 +34,4 @@ public class Common {
 		}
 		return true;
 	}
-
-	// public boolean add(TreeNode node, int value) {
-	// if (value == node.val)
-	// return false;
-	// if (value < node.val) {
-	// if (node.left == null) {
-	// node.left = new TreeNode(value);
-	// return true;
-	// } else {
-	// return add(node.left, value);
-	// }
-	// } else if (value > node.val) {
-	// if (node.right == null) {
-	// node.right = new TreeNode(value);
-	// return true;
-	// } else {
-	// return add(node.right, value);
-	// }
-	// }
-	// return false;
-	// }
 }

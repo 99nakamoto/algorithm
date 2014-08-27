@@ -1,68 +1,73 @@
 package algo.questions;
 
-class Node {
-	public Node[] childs = null;
-}
-
+/*
+ * The code is refacted by referring to:
+ * http://www.careercup.com/question?id=9478119
+ * 
+ */
 public class DuplicateRowsInBinaryMatrix {
-	public static int[][] uniqueRows(int[][] matrix) {
-		int N = matrix.length;
-		boolean[] isUnique = new boolean[N];
+
+	public int[][] getUniqueRows(int[][] matrix) {
+		int m = matrix.length;
+		int n = matrix[0].length;
+
+		TrieNode root = new TrieNode();
+		TrieNode p;
 		int uniqueCount = 0;
-		Node root = new Node();
-		for (int i = 0; i < N; i++) {
-			Node current = root;
-			for (int j = 0; j < N; j++) {
-				int index = matrix[i][j];
-				if (null == current.childs) {
-					current.childs = new Node[2];
+		boolean[] isUnique = new boolean[m];
+		// isUnique is used to mark the lines that would appear in final result
+
+		// start to build the trie
+		for (int i = 0; i < m; i++) {
+			// insert number matrix[i][] into the trie
+			p = root;
+			// root element would be an empty heading for all numbers
+			for (int j = 0; j < n; j++) {
+				int digit = matrix[i][j];
+				if (p.kids == null) {
+					p.kids = new TrieNode[2];
 				}
-				if (null == current.childs[index]) {
-					current.childs[index] = new Node();
-					if ((N - 1) == j) {
-						isUnique[i] = true;
+				if (p.kids[digit] == null) {
+					// this is a whole new branch, create a new node here
+					p.kids[digit] = new TrieNode();
+					if (j == n - 1) {
 						uniqueCount++;
+						isUnique[i] = true;
 					}
 				}
-				current = current.childs[index];
+				p = p.kids[digit];
 			}
 		}
-
+		System.out.println("uniqueCount is " + uniqueCount);
 		int[][] result = new int[uniqueCount][];
-		int resultCount = 0;
-		for (int i = 0; i < N; i++) {
-			if (isUnique[i]) {
-				result[resultCount] = matrix[i];
-				resultCount++;
+		int k = 0;
+		for (int w = 0; w < isUnique.length; w++) {
+			if (isUnique[w]) {
+				result[k++] = matrix[w];
 			}
 		}
 		return result;
 	}
 
+	class TrieNode {
+		TrieNode[] kids = null;
+	}
+
 	public static void main(String[] args) {
-		int[][] matrix1 = { { 0, 1, 0, 0, 1 }, { 1, 0, 1, 1, 0 },
-				{ 0, 1, 0, 0, 1 }, { 1, 1, 1, 0, 0 } };
-		debug(uniqueRows(matrix1));
+		DuplicateRowsInBinaryMatrix ins = new DuplicateRowsInBinaryMatrix();
+		int[][] matrix1 = { { 1, 0, 0, 0, 0 }, { 1, 0, 0, 0, 1 },
+				{ 1, 0, 0, 1, 1 }, { 1, 0, 0, 1, 1 }, { 1, 0, 0, 1, 1 },
+				{ 1, 0, 0, 0, 1 } };
+
+		printResult(ins.getUniqueRows(matrix1), " ");
 	}
 
-	public static void debug(int[][] array) {
-		debug(array, " ");
-	}
-
-	public static void debug(int[][] array, String separator) {
-		for (int i = 0; i < array.length; i++) {
-			debug(array[i], separator);
+	public static void printResult(int[][] array, String separator) {
+		for (int[] line : array) {
+			for (Integer i : line) {
+				System.out.print(i + " ");
+			}
+			System.out.println();
 		}
-	}
-
-	public static void debug(int[] array, String separator) {
-		StringBuffer buffer = new StringBuffer();
-		for (int i = 0; i < array.length - 1; i++) {
-			buffer.append(array[i] + separator);
-		}
-		if (array.length > 0) {
-			buffer.append(array[array.length - 1]);
-		}
-		System.out.println(buffer.toString());
 	}
 }
