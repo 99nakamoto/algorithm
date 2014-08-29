@@ -1,4 +1,4 @@
-package algo.questions.fileio;
+package algo.questions.read4k;
 
 public class GoogleRead4096 {
 
