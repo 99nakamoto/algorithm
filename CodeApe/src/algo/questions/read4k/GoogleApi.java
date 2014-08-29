@@ -1,4 +1,4 @@
-package algo.questions.fileio;
+package algo.questions.read4k;
 
 import java.io.BufferedReader;
 import java.io.File;
