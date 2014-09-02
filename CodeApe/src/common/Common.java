@@ -4,6 +4,14 @@ import java.util.List;
 
 public class Common {
 
+	public static void printArray(int[] arrayI) {
+		System.out.println("Print the array: ");
+		for (int i : arrayI) {
+			System.out.print(i + ", ");
+		}
+		System.out.println();
+	}
+
 	public static void printList(List<?> list) {
 		System.out.println("Print the list: ");
 		for (Object obj : list) {
