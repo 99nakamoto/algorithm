@@ -15,7 +15,7 @@ public class WeirdSortingArray {
 		ins.solutionOn(array);
 		Common.printArray(array);
 
-		ins.solutionOlgn(array);
+		ins.solutionOnlgn(array);
 		Common.printArray(array);
 	}
 
@@ -31,7 +31,7 @@ public class WeirdSortingArray {
 		}
 	}
 
-	public void solutionOlgn(int[] A) {
+	public void solutionOnlgn(int[] A) {
 		// this is a O(nlgn) solution
 		Arrays.sort(A);
 		for (int i = 2; i < A.length; i += 2) {
