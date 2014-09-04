@@ -4,6 +4,19 @@ import java.util.List;
 
 public class Common {
 
+	public static void printArray(int[] array) {
+		if (array == null || array.length == 0) {
+			System.out.println("The array you input is null/empty. ");
+		}
+		System.out.println("Print the array: ");
+		System.out.print("{");
+		StringBuilder sb = new StringBuilder();
+		for (int i : array) {
+			sb.append(", " + i);
+		}
+		System.out.println(sb.toString().substring(2) + "}");
+	}
+
 	public static void printList(List<?> list) {
 		System.out.println("Print the list: ");
 		for (Object obj : list) {
