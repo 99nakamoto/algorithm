@@ -10,12 +10,11 @@ import java.util.LinkedList;
 
 public class HashMapCC150<K, V> {
 
-	int size;
+	private static final int SIZE = 10;
 	LinkedList<Cell<K, V>>[] items;
 
-	public HashMapCC150(int num) {
-		this.size = num;
-		items = (LinkedList<Cell<K, V>>[]) new LinkedList[10];
+	public HashMapCC150() {
+		items = (LinkedList<Cell<K, V>>[]) new LinkedList[SIZE];
 	}
 
 	public V get(K k) {
@@ -54,11 +53,11 @@ public class HashMapCC150<K, V> {
 	}
 
 	private int calculateHashCode(K k) {
-		return k.toString().length() % size;
+		return k.toString().length() % SIZE;
 	}
 
 	public static void main(String[] args) {
-		HashMapCC150<String, String> map = new HashMapCC150<String, String>(10);
+		HashMapCC150<String, String> map = new HashMapCC150<String, String>();
 		map.put("kevin", "durant");
 		map.put("steven", "curry");
 		map.put("al", "jefferson");
@@ -75,6 +74,7 @@ public class HashMapCC150<K, V> {
 }
 
 class Cell<K, V> {
+
 	private K key;
 	private V value;
 
