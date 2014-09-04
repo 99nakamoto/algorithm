@@ -7,7 +7,7 @@ public class aaTemplate {
 		System.out.println();
 	}
 
-	public void solution(int input) {
+	public void solution(int A) {
 
 	}
 }
