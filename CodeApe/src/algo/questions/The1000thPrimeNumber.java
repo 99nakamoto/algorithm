@@ -5,10 +5,6 @@ public class The1000thPrimeNumber {
 	private static final int INDEX = 10001;
 	private static final int LIMIT = 1000000;
 
-	public static void main(String args[]) {
-		System.out.println(INDEX + "th prime: " + get10001stPrime());
-	}
-
 	private static int get10001stPrime() {
 		boolean[] sieveArray = new boolean[LIMIT];
 		int primeCount = 0;
@@ -23,5 +19,9 @@ public class The1000thPrimeNumber {
 			currentNum++;
 		}
 		return currentNum - 1;
+	}
+
+	public static void main(String args[]) {
+		System.out.println(INDEX + "th prime: " + get10001stPrime());
 	}
 }
