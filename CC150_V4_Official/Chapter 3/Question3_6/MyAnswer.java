@@ -2,18 +2,12 @@ package Question3_6;
 
 import java.util.Stack;
 
-public class Question {
+public class MyAnswer {
 
 	public static Stack<Integer> sort(Stack<Integer> s) {
-		Stack<Integer> r = new Stack<Integer>();
-		while (!s.isEmpty()) {
-			int tmp = s.pop();
-			while (!r.isEmpty() && r.peek() > tmp) {
-				s.push(r.pop());
-			}
-			r.push(tmp);
-		}
-		return r;
+		Stack<Integer> result = new Stack<Integer>();
+
+		return result;
 	}
 
 	public static void main(String[] args) {
