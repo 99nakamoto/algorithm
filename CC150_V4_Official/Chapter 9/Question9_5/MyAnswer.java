@@ -9,17 +9,17 @@ public class MyAnswer {
 		int len = input.length;
 		int left = 0, right = len - 1;
 		while (left < right) {
-			int mid = left + (right - left) / 2;
-			int realMid = mid;
-			while (realMid < len && input[realMid].length() == 0) {
-				realMid++;
+			int calculatedMid = left + (right - left) / 2;
+			int comparisonMid = calculatedMid;
+			while (comparisonMid < len && input[comparisonMid].length() == 0) {
+				comparisonMid++;
 			}
-			if (input[realMid].equals(target)) {
-				return realMid;
-			} else if (input[realMid].compareTo(target) < 0) {
-				left = realMid + 1;
+			if (input[comparisonMid].equals(target)) {
+				return comparisonMid;
+			} else if (input[comparisonMid].compareTo(target) < 0) {
+				left = comparisonMid + 1;
 			} else {
-				right = mid - 1;
+				right = calculatedMid - 1;
 			}
 		}
 		if (left < len && input[left].equals(target)) {
