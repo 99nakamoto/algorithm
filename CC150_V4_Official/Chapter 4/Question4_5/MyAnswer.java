@@ -2,34 +2,25 @@ package Question4_5;
 
 import CareerCupLibrary.TreeNode;
 
-public class Question {
+public class MyAnswer {
 
 	public static TreeNode inorderSucc(TreeNode e) {
-		if (e != null) {
-			TreeNode p;
-			// Found right children -> return 1st inorder node on right
-			if (e.parent == null || e.right != null) {
-				p = leftMostChild(e.right);
-			} else {
-				// Go up until we’re on left instead of right (case 2b)
-				while ((p = e.parent) != null) {
-					if (p.left == e) {
-						break;
-					}
-					e = p;
-				}
+		if (e == null)
+			return null;
+		if (e.right != null) {
+			TreeNode p = e.right;
+			while (p.left != null) {
+				p = p.left;
+			}
+			return p;
+		} else {
+			TreeNode p = e.parent;
+			while (p != null && p.right == e) {
+				e = p;
+				p = e.parent;
 			}
 			return p;
 		}
-		return null;
-	}
-
-	public static TreeNode leftMostChild(TreeNode e) {
-		if (e == null)
-			return null;
-		while (e.left != null)
-			e = e.left;
-		return e;
 	}
 
 	public static void main(String[] args) {

@@ -4,17 +4,20 @@ import java.util.Stack;
 
 public class Question {
 
+	private static final int NUM_DISKS = 5;
+
 	public static void main(String[] args) {
 		// Set up code.
-		int numDisks = 3;
 		Tower[] tower = new Tower[3];
 		for (int id = 0; id < 3; id++) {
 			tower[id] = new Tower(id);
 		}
-		for (int diskSize = numDisks - 1; diskSize >= 0; diskSize--) {
+		for (int diskSize = NUM_DISKS - 1; diskSize >= 0; diskSize--) {
 			tower[0].add(diskSize);
 		}
-		tower[0].moveDisks(numDisks, tower[2], tower[1]);
+		
+		System.out.println("Correct answer: ");
+		tower[0].moveDisks(NUM_DISKS, tower[2], tower[1]);
 	}
 }
 
