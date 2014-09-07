@@ -3,7 +3,8 @@ package Question5_2;
 public class Question {
 	public static String printBinary(String n) {
 		int intPart = Integer.parseInt(n.substring(0, n.indexOf('.')));
-		double decPart = Double.parseDouble(n.substring(n.indexOf('.'), n.length()));
+		double decPart = Double.parseDouble(n.substring(n.indexOf('.'),
+				n.length()));
 		String int_string = "";
 		while (intPart > 0) {
 			int r = intPart % 2;
@@ -17,7 +18,7 @@ public class Question {
 				return "ERROR";
 			}
 			if (decPart == 1) {
-				dec_string.append((int)decPart);
+				dec_string.append((int) decPart);
 				break;
 			}
 			double r = decPart * 2;
@@ -31,7 +32,7 @@ public class Question {
 		}
 		return int_string + "." + dec_string.toString();
 	}
-	
+
 	public static void main(String[] args) {
 		String n = "19.25";
 		String bs = printBinary(n);

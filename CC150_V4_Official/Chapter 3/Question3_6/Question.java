@@ -5,15 +5,15 @@ import java.util.Stack;
 public class Question {
 
 	public static Stack<Integer> sort(Stack<Integer> s) {
-		Stack<Integer> r = new Stack<Integer>();
+		Stack<Integer> result = new Stack<Integer>();
 		while (!s.isEmpty()) {
 			int tmp = s.pop();
-			while (!r.isEmpty() && r.peek() > tmp) {
-				s.push(r.pop());
+			while (!result.isEmpty() && result.peek() > tmp) {
+				s.push(result.pop());
 			}
-			r.push(tmp);
+			result.push(tmp);
 		}
-		return r;
+		return result;
 	}
 
 	public static void main(String[] args) {
