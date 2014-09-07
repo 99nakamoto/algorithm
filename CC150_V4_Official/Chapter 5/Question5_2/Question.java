@@ -1,6 +1,7 @@
 package Question5_2;
 
 public class Question {
+
 	public static String printBinary(String n) {
 		int intPart = Integer.parseInt(n.substring(0, n.indexOf('.')));
 		double decPart = Double.parseDouble(n.substring(n.indexOf('.'),
@@ -34,8 +35,12 @@ public class Question {
 	}
 
 	public static void main(String[] args) {
-		String n = "19.25";
-		String bs = printBinary(n);
-		System.out.println(bs);
+		String n;
+
+		n = "10.625";
+		System.out.println(printBinary(n));
+
+		n = "1.111";
+		System.out.println(printBinary(n));
 	}
 }

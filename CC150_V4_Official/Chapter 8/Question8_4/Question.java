@@ -1,6 +1,6 @@
 package Question8_4;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class Question {
 
@@ -13,7 +13,7 @@ public class Question {
 			permutations.add("");
 			return permutations;
 		}
-	            
+
 		char first = s.charAt(0); // get the first character
 		String remainder = s.substring(1); // remove the first character
 		ArrayList<String> words = getPerms(remainder);
@@ -24,13 +24,13 @@ public class Question {
 		}
 		return permutations;
 	}
-	
+
 	public static String insertCharAt(String word, char c, int i) {
 		String start = word.substring(0, i);
 		String end = word.substring(i);
 		return start + c + end;
 	}
-	
+
 	public static void main(String[] args) {
 		ArrayList<String> list = getPerms("abcde");
 		System.out.println("There are " + list.size() + " permutations.");
@@ -38,5 +38,4 @@ public class Question {
 			System.out.println(s);
 		}
 	}
-
 }

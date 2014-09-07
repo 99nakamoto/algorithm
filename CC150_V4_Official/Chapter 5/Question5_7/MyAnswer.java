@@ -1,31 +1,33 @@
 package Question5_7;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-public class Question {
+public class MyAnswer {
 
-	public static int findMissing(ArrayList<BitInteger> array) {
-		return findMissing(array, BitInteger.INTEGER_SIZE - 1);
+	public static int findMissing(List<BitInteger> list) {
+		return helper(list, BitInteger.INTEGER_SIZE - 1);
 	}
 
-	private static int findMissing(ArrayList<BitInteger> input, int col) {
-		if (col < 0) { // Base case and error condition
+	private static int helper(List<BitInteger> list, int col) {
+		if (list.size() == 0)
 			return 0;
-		}
-		ArrayList<BitInteger> oddIndices = new ArrayList<BitInteger>();
-		ArrayList<BitInteger> evenIndices = new ArrayList<BitInteger>();
-		for (BitInteger t : input) {
-			if (t.fetch(col) == 0) {
-				evenIndices.add(t);
+		List<BitInteger> zeroList = new ArrayList<BitInteger>();
+		List<BitInteger> oneList = new ArrayList<BitInteger>();
+		for (BitInteger bit : list) {
+			if (bit.fetch(col) == 0) {
+				zeroList.add(bit);
 			} else {
-				oddIndices.add(t);
+				oneList.add(bit);
 			}
 		}
-		if (oddIndices.size() >= evenIndices.size()) {
-			return (findMissing(evenIndices, col - 1)) << 1 | 0;
+		if (zeroList.size() <= oneList.size()) {
+			// this means the missing value contains a 0
+			return helper(zeroList, col - 1) << 1;
 		} else {
-			return (findMissing(oddIndices, col - 1)) << 1 | 1;
+			// the missing value contains 1
+			return helper(oneList, col - 1) << 1 | 1;
 		}
 	}
 
