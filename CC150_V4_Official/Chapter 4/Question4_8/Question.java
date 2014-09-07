@@ -1,16 +1,19 @@
 package Question4_8;
 
 import java.util.ArrayList;
+
 import CareerCupLibrary.TreeNode;
 
 public class Question {
-	public static void findSum(TreeNode head, int sum, ArrayList<Integer> buffer, int level) {
+	
+	public static void findSum(TreeNode head, int sum,
+			ArrayList<Integer> buffer, int level) {
 		if (head == null) {
 			return;
 		}
 		int tmp = sum;
 		buffer.add(head.data);
-		for (int i = level;i >- 1; i--){
+		for (int i = level; i > -1; i--) {
 			tmp -= buffer.get(i);
 			if (tmp == 0) {
 				print(buffer, i, level);
@@ -29,7 +32,7 @@ public class Question {
 		System.out.println();
 	}
 
-	public static void main(String [] args){
+	public static void main(String[] args) {
 		TreeNode root = new TreeNode(5);
 		root.left = new TreeNode(3);
 		root.right = new TreeNode(1);
@@ -40,4 +43,3 @@ public class Question {
 		findSum(root, 8, new ArrayList<Integer>(), 0);
 	}
 }
-

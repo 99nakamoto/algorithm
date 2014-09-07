@@ -1,7 +1,5 @@
 package Question4_7;
 
-import java.io.IOException;
-
 import CareerCupLibrary.AssortedMethods;
 import CareerCupLibrary.TreeNode;
 
@@ -13,38 +11,40 @@ public class Question {
 		else
 			return subTree(t1, t2);
 	}
-	
-	/* Checks if the binary tree rooted at r1 contains the binary tree 
-	 * rooted at r2 as a subtree somewhere within it.
+
+	/*
+	 * Checks if the binary tree rooted at r1 contains the binary tree rooted at
+	 * r2 as a subtree somewhere within it.
 	 */
 	public static boolean subTree(TreeNode r1, TreeNode r2) {
 		if (r1 == null)
 			return false; // big tree empty & subtree still not found.
 		if (r1.data == r2.data) {
-			if (matchTree(r1,r2)) return true;
+			if (matchTree(r1, r2))
+				return true;
 		}
-		return (subTree(r1.left, r2) || subTree(r1.right, r2)); 
+		return (subTree(r1.left, r2) || subTree(r1.right, r2));
 	}
 
-	/* Checks if the binary tree rooted at r1 contains the 
-	 * binary tree rooted at r2 as a subtree starting at r1.
+	/*
+	 * Checks if the binary tree rooted at r1 contains the binary tree rooted at
+	 * r2 as a subtree starting at r1.
 	 */
 	public static boolean matchTree(TreeNode r1, TreeNode r2) {
-		if (r2 == null && r1 == null) 
+		if (r2 == null && r1 == null)
 			return true; // nothing left in the subtree
-		if (r1 == null || r2 == null) 
-			return false; //  big tree empty & subtree still not found
-		if (r1.data != r2.data) 
-			return false;  // data doesn’t match
-		return (matchTree(r1.left, r2.left) && 
-				matchTree(r1.right, r2.right));
+		if (r1 == null || r2 == null)
+			return false; // big tree empty & subtree still not found
+		if (r1.data != r2.data)
+			return false; // data doesnï¿½t match
+		return (matchTree(r1.left, r2.left) && matchTree(r1.right, r2.right));
 	}
 
 	public static void main(String[] args) {
 		// t2 is a subtree of t1
-		int[] array1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
-		int[] array2 = {2, 4, 5, 8, 9, 10, 11};
-		
+		int[] array1 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+		int[] array2 = { 2, 4, 5, 8, 9, 10, 11 };
+
 		TreeNode t1 = AssortedMethods.createTreeFromArray(array1);
 		TreeNode t2 = AssortedMethods.createTreeFromArray(array2);
 
@@ -54,7 +54,7 @@ public class Question {
 			System.out.println("t2 is not a subtree of t1");
 
 		// t4 is not a subtree of t3
-		int[] array3 = {1, 2, 3};
+		int[] array3 = { 1, 2, 3 };
 		TreeNode t3 = AssortedMethods.createTreeFromArray(array1);
 		TreeNode t4 = AssortedMethods.createTreeFromArray(array3);
 

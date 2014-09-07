@@ -6,7 +6,13 @@ public class MyAnswer {
 
 	public static Stack<Integer> sort(Stack<Integer> s) {
 		Stack<Integer> result = new Stack<Integer>();
-
+		while (!s.isEmpty()) {
+			Integer nextNum = s.pop();
+			while (!result.isEmpty() && result.peek() < nextNum) {
+				s.push(result.pop());
+			}
+			result.push(nextNum);
+		}
 		return result;
 	}
 
