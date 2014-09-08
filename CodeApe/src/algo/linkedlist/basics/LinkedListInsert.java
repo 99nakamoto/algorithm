@@ -1,4 +1,4 @@
-package algo.linkedlist.fundamentals;
+package algo.linkedlist.basics;
 
 import common.ListNode;
 
