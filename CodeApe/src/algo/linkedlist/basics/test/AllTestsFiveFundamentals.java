@@ -1,4 +1,4 @@
-package algo.linkedlist.fundamentals.test;
+package algo.linkedlist.basics.test;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
