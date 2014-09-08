@@ -1,4 +1,4 @@
-package algo.linkedlist.fundamentals.test;
+package algo.linkedlist.basics.test;
 
 import junit.framework.Assert;
 
@@ -6,8 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import common.ListNode;
-
-import algo.linkedlist.fundamentals.LinkedListReverse;
+import algo.linkedlist.basics.LinkedListReverse;
 
 public class LinkedListReverseTest {
 
