@@ -1,6 +1,5 @@
 package Question19_9;
 
-import java.awt.List;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,7 +13,9 @@ public class Question {
 	private ArrayList<String> tokens;
 	private int currentTokenIndex;
 
-	public Question(Map<String, Byte> tagMap) {this.tagMap = tagMap;}
+	public Question(Map<String, Byte> tagMap) {
+		this.tagMap = tagMap;
+	}
 
 	public byte[] encode(char[] input) throws IOException {
 		// tokenize
@@ -27,8 +28,7 @@ public class Question {
 		return outputStream.toByteArray();
 	}
 
-	private void encodeTokens(ByteArrayOutputStream output) 
-		throws IOException {
+	private void encodeTokens(ByteArrayOutputStream output) throws IOException {
 		nextToken("<");
 
 		// read tag name
@@ -109,14 +109,13 @@ public class Question {
 	}
 
 	private boolean hasNextTokens(String... expectedTokens) {
-		if (currentTokenIndex + expectedTokens.length > 
-			tokens.size()) {
+		if (currentTokenIndex + expectedTokens.length > tokens.size()) {
 			return false;
 		}
 
 		for (int i = 0; i < expectedTokens.length; i++) {
-			if (!tokens.get(currentTokenIndex + i)
-					.equals(expectedTokens[i])) return false;
+			if (!tokens.get(currentTokenIndex + i).equals(expectedTokens[i]))
+				return false;
 		}
 		return true;
 	}
@@ -131,8 +130,10 @@ public class Question {
 
 	private int setNextToken(char[] input, int inputIndex) {
 		int i = inputIndex;
-		while (i < input.length && input[i] == ' ') i++;
-		if (i == input.length) return i;
+		while (i < input.length && input[i] == ' ')
+			i++;
+		if (i == input.length)
+			return i;
 
 		// get 1 char token
 		char c = input[i];
@@ -147,8 +148,7 @@ public class Question {
 			string.append(c);
 			i++;
 			c = input[i];
-			if (c == '<' || c == '>' || c == '=' || 
-				c == '/' || c == ' ') {
+			if (c == '<' || c == '>' || c == '=' || c == '/' || c == ' ') {
 				break;
 			}
 		} while (i < input.length);
