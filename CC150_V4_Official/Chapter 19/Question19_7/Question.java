@@ -1,7 +1,7 @@
 package Question19_7;
 
 public class Question {
-	
+
 	public static int getMaxSum(int[] a) {
 		int maxsum = 0;
 		int sum = 0;
@@ -15,9 +15,9 @@ public class Question {
 		}
 		return maxsum;
 	}
-	
+
 	public static void main(String[] args) {
-		int[] a = {2, -8, 3, -2, 4, -10};
+		int[] a = { 2, -8, 3, -2, 4, -10 };
 		System.out.println(getMaxSum(a));
 	}
 }

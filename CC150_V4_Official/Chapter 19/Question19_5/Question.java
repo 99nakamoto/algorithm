@@ -5,12 +5,12 @@ public class Question {
 	public static class Result {
 		public int hits;
 		public int pseudoHits;
-		
+
 		public String toString() {
-			return "(" + hits + ", " + pseudoHits + ")";
+			return hits + " hits and " + pseudoHits + " matches";
 		}
 	};
-	
+
 	public static Result estimate(String guess, String solution) {
 		Result res = new Result();
 		int solution_mask = 0;
@@ -20,15 +20,20 @@ public class Question {
 		for (int i = 0; i < 4; ++i) {
 			if (guess.charAt(i) == solution.charAt(i)) {
 				++res.hits;
-			} else if ((solution_mask & ( 1 << (1 + guess.charAt(i) - 'A'))) >= 1) {
+			} else if ((solution_mask & (1 << (1 + guess.charAt(i) - 'A'))) >= 1) {
 				++res.pseudoHits;
 			}
-	 	}
-	 	return res;
+		}
+		return res;
 	}
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Result res = estimate("YRGB", "RGGB");
+		Result res;
+
+		res = estimate("YRGB", "RGGB");
+		System.out.println(res.toString());
+
+		res = estimate("ABCA", "ABCD");
 		System.out.println(res.toString());
 	}
 
