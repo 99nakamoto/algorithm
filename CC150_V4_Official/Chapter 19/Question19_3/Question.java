@@ -12,7 +12,7 @@ public class Question {
 		}
 		return count;
 	}
-	
+
 	public static int fact1(int num) {
 		if (num == 1) {
 			return 1;
@@ -22,10 +22,11 @@ public class Question {
 			return -1; // Error
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		for (int i = 1; i < 12; i++) {
-			System.out.println(i + "! (or " + fact1(i) + ") has " + numZeros(i) + " zeros");
+			System.out.println(i + "! (or " + fact1(i) + ") has " + numZeros(i)
+					+ " zeros");
 		}
 	}
 }
