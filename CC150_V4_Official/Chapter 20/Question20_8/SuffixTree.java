@@ -6,6 +6,7 @@ public class SuffixTree {
 	SuffixTreeNode root = new SuffixTreeNode();
 	
 	public SuffixTree(String s) {
+		// create a suffix tree with input string s
 		for (int i = 0; i < s.length(); i++) {
 	    	String suffix = s.substring(i);
 	    	root.insertString(suffix, i);
