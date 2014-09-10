@@ -1,8 +1,8 @@
 package Question20_4;
 
-public class Question {
+public class MyAnswer {
 
-	public static int count2sIterative(int num) {
+	public static int count2sCC150(int num) {
 
 		int countOf2s = 0;
 		int digit = 0;
@@ -46,44 +46,31 @@ public class Question {
 		return (countOf2s);
 	}
 
-	public static int count2sRecursive(int n) {
-		// Example: n = 513
-
-		// Base case
-		if (n == 0) {
+	public static int myAnswer(int n) {
+		if (n == 0)
 			return 0;
+		int power = 1;
+		while (power * 10 <= n) {
+			power *= 10;
 		}
 
-		// Split apart 513 into 5 * 100 + 13.
-		// [Power = 100; First = 5; Remainder = 13]
-		int POWER = 1;
-		while (10 * POWER < n) {
-			POWER *= 10;
+		int first = n / power;
+		int reminder = n % power;
+		int firstDigit2count = 0;
+		if (first > 2) {
+			firstDigit2count = power;
+		} else if (first == 2) {
+			firstDigit2count = reminder + 1;
 		}
-		int firstDigit = n / POWER;
-		int remainderNum = n % POWER;
-
-		// Counts 2s from first digit
-		int num2sFirstDigit = 0;
-		if (firstDigit > 2) {
-			num2sFirstDigit = POWER;
-		} else if (firstDigit == 2) {
-			// eg. number = 201, there would be (200, 201), 2 occurance
-			num2sFirstDigit = remainderNum + 1;
-		}
-
-		// Count 2s from all other digits
-		// THIS FORMULA IS IMPORTANT!!!!
-		int num2sReminder = firstDigit * count2sRecursive(POWER - 1)
-				+ count2sRecursive(remainderNum);
-
-		return num2sFirstDigit + num2sReminder;
+		int totalCountBeforeReminder = firstDigit2count
+				+ (first * myAnswer(power - 1));
+		return totalCountBeforeReminder + myAnswer(reminder);
 	}
 
 	public static void main(String[] args) {
 		for (int i = 1; i < 1400; i += 99) {
-			int v1 = count2sRecursive(i);
-			int v2 = count2sIterative(i);
+			int v1 = myAnswer(i);
+			int v2 = count2sCC150(i);
 			System.out.println("Between 0 and " + i
 					+ ": \n                      " + v1 + " == " + v2);
 		}
