@@ -2,16 +2,15 @@ package Question20_11;
 
 import CareerCupLibrary.AssortedMethods;
 
-public class Question20_11 {
+public class Question {
 
-	public static Subsquare findSquare(int[][] matrix) {
+	public static Subsquare findMaxSquareInMatrix(int[][] matrix) {
 		assert (matrix.length > 0);
 		for (int row = 0; row < matrix.length; row++) {
 			assert (matrix[row].length == matrix.length);
 		}
 
 		int N = matrix.length;
-
 		int currentMaxSize = 0;
 		Subsquare sq = null;
 		int col = 0;
@@ -22,7 +21,7 @@ public class Question20_11 {
 				// starting from the biggest
 				int size = N - Math.max(row, col);
 				while (size > currentMaxSize) {
-					if (isSquare(matrix, row, col, size)) {
+					if (checkSquareBorders(matrix, row, col, size)) {
 						currentMaxSize = size;
 						sq = new Subsquare(row, col, size);
 						break; // go to next (full) column
@@ -35,7 +34,8 @@ public class Question20_11 {
 		return sq;
 	}
 
-	private static boolean isSquare(int[][] matrix, int row, int col, int size) {
+	private static boolean checkSquareBorders(int[][] matrix, int row, int col,
+			int size) {
 		// Check top and bottom border.
 		for (int j = 0; j < size; j++) {
 			if (matrix[row][col + j] == 1) {
@@ -61,7 +61,7 @@ public class Question20_11 {
 	public static void main(String[] args) {
 		int[][] matrix = AssortedMethods.randomMatrix(30, 30, 0, 1);
 		AssortedMethods.printMatrix(matrix);
-		Subsquare square = findSquare(matrix);
+		Subsquare square = findMaxSquareInMatrix(matrix);
 		square.print();
 	}
 }
