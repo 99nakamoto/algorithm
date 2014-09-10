@@ -1,13 +1,13 @@
 package Question20_1;
 
-public class Question {
+public class MyAnswer {
 
 	public static int add_no_arithm(int a, int b) {
 		if (b == 0)
 			return a;
-		int sum = a ^ b; // add without carrying
-		int carry = (a & b) << 1; // carry, but don’t add
-		return add_no_arithm(sum, carry); // recurse
+		int addition = a ^ b;
+		int carry = (a & b) << 1;
+		return add_no_arithm(addition, carry);
 	}
 
 	public static int randomInt(int n) {
