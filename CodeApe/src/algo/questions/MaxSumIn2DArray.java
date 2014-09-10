@@ -17,7 +17,7 @@ public class MaxSumIn2DArray {
 		for (int i = 0; i < m; i++) {
 			int[] temp = new int[n];
 			for (int j = i; j < m; j++) {
-				// from row#i to row#(m-1), add the number into temp[]
+				// from row # i to row # (m-1), add the number into temp[]
 				for (int k = 0; k < n; k++) {
 					temp[k] += A[j][k];
 				}
