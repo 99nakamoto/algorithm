@@ -3,6 +3,7 @@ package Question20_12;
 import CareerCupLibrary.*;
 
 public class Question {
+
 	public static int getMaxMatrix(int[][] original) {
 		int maxArea = Integer.MIN_VALUE; // Important! Max could be < 0
 		int rowCount = original.length;
@@ -14,17 +15,19 @@ public class Question {
 					for (int col2 = col1; col2 < columnCount; col2++) {
 						int sum = computeSum(matrix, row1, row2, col1, col2);
 						if (sum > maxArea) {
-							System.out.println("New Max of " + sum + ": (rows " + row1 + " to " + row2 + ") and (columns " + col1 + " to " + col2 + ")");
+							System.out.println("New Max of " + sum + ": (rows "
+									+ row1 + " to " + row2 + ") and (columns "
+									+ col1 + " to " + col2 + ")");
 							maxArea = sum;
 						}
-						
+
 					}
 				}
 			}
 		}
 		return maxArea;
 	}
-		
+
 	private static int[][] precomputeMatrix(int[][] matrix) {
 		int[][] sumMatrix = new int[matrix.length][matrix[0].length];
 		for (int i = 0; i < matrix.length; i++) {
@@ -36,17 +39,16 @@ public class Question {
 				} else if (i == 0) { // cell in first row
 					sumMatrix[i][j] = sumMatrix[i][j - 1] + matrix[i][j];
 				} else {
-					sumMatrix[i][j] = sumMatrix[i - 1][j] + 
-					  sumMatrix[i][j - 1] - sumMatrix[i - 1][j - 1] +
-					  matrix[i][j];
+					sumMatrix[i][j] = sumMatrix[i - 1][j] + sumMatrix[i][j - 1]
+							- sumMatrix[i - 1][j - 1] + matrix[i][j];
 				}
 			}
 		}
 		return sumMatrix;
 	}
-	
-	private static int computeSum(int[][] sumMatrix, int i1, int i2, 
-								  int j1, int j2) {
+
+	private static int computeSum(int[][] sumMatrix, int i1, int i2, int j1,
+			int j2) {
 		if (i1 == 0 && j1 == 0) { // starts at row 0, column 0
 			return sumMatrix[i2][j2];
 		} else if (i1 == 0) { // starts at row 0
@@ -54,10 +56,11 @@ public class Question {
 		} else if (j1 == 0) { // starts at column 0
 			return sumMatrix[i2][j2] - sumMatrix[i1 - 1][j2];
 		} else {
-			return sumMatrix[i2][j2] - sumMatrix[i2][j1 - 1] - sumMatrix[i1 - 1][j2] + sumMatrix[i1 - 1][j1 - 1];
+			return sumMatrix[i2][j2] - sumMatrix[i2][j1 - 1]
+					- sumMatrix[i1 - 1][j2] + sumMatrix[i1 - 1][j1 - 1];
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		int[][] matrix = AssortedMethods.randomMatrix(10, 10, -5, 5);
 		AssortedMethods.printMatrix(matrix);
