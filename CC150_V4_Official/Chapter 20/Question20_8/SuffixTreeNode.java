@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SuffixTreeNode {
-	HashMap<Character, SuffixTreeNode> children = new HashMap<Character, SuffixTreeNode>();
-	
+
 	char value;
+	HashMap<Character, SuffixTreeNode> children;
 	ArrayList<Integer> indexes = new ArrayList<Integer>();
-	public SuffixTreeNode() { }
-	
+
+	public SuffixTreeNode() {
+		children = new HashMap<Character, SuffixTreeNode>();
+	}
+
 	public void insertString(String s, int index) {
 		indexes.add(index);
 		if (s != null && s.length() > 0) {
@@ -25,7 +28,7 @@ public class SuffixTreeNode {
 			child.insertString(remainder, index);
 		}
 	}
-	
+
 	public ArrayList<Integer> getIndexes(String s) {
 		if (s == null || s.length() == 0) {
 			return indexes;
@@ -39,4 +42,3 @@ public class SuffixTreeNode {
 		return null;
 	}
 }
-
