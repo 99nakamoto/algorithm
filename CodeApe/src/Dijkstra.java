@@ -35,23 +35,21 @@ public class Dijkstra {
 
 	public static void minPath() throws RuntimeException {
 		distances = new HashMap<Integer, Integer>();
-		distances.put((Integer) 0, (Integer) 0);
+		distances.put(0, 0);
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = i + 1; j < matrix[i].length; j++) {
-				if (matrix[i][j] > 0) {
-					if (distances.get((Integer) j) == null) {
-						distances.put((Integer) j, distances.get((Integer) i)
-								+ matrix[i][j]);
+				if (matrix[i][j] == 0) {
+					// not connected
+					continue;
+				}
+				if (distances.get(j) == null) {
+					distances.put(j, distances.get(i) + matrix[i][j]);
+				} else {
+					if (distances.get(i) == null) {
+						throw new RuntimeException();
 					} else {
-						if (distances.get((Integer) i) == null) {
-							throw new RuntimeException();
-						} else {
-							if (distances.get((Integer) i) + matrix[i][j] < distances
-									.get((Integer) j)) {
-								distances.put((Integer) j,
-										distances.get((Integer) i)
-												+ matrix[i][j]);
-							}
+						if (distances.get(i) + matrix[i][j] < distances.get(j)) {
+							distances.put(j, distances.get(i) + matrix[i][j]);
 						}
 					}
 				}
@@ -61,6 +59,7 @@ public class Dijkstra {
 	}
 
 	public static void main(String[] args) {
+
 		printMatrix(randomMatrix(5));
 		minPath();
 
@@ -74,7 +73,9 @@ public class Dijkstra {
 		matrix[2][5] = 2;
 		matrix[3][4] = 6;
 		matrix[4][5] = 9;
+
 		printMatrix(matrix);
 		minPath();
 	}
+
 }
