@@ -3,6 +3,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class HarryPotter {
+
 	private static Random rand = new Random();
 	private static int[][] matrix;
 	private static Map<CacheKey, Integer> cache = new HashMap<CacheKey, Integer>();
@@ -105,4 +106,5 @@ public class HarryPotter {
 		printMatrix(matrix);
 		cachedStrength(0, 0);
 	}
+
 }
