@@ -12,9 +12,10 @@ public class Question {
 		}
 		return index;
 	}
-	
+
 	public static int countCompression(String str) {
-		if (str == null || str.isEmpty()) return 0;
+		if (str == null || str.isEmpty())
+			return 0;
 		char last = str.charAt(0);
 		int size = 0;
 		int count = 1;
@@ -25,12 +26,12 @@ public class Question {
 				last = str.charAt(i);
 				size += 1 + String.valueOf(count).length();
 				count = 1;
-			} 
+			}
 		}
 		size += 1 + String.valueOf(count).length();
 		return size;
 	}
-	
+
 	public static String compressBad(String str) {
 		int size = countCompression(str);
 		if (size >= str.length()) {
@@ -50,7 +51,7 @@ public class Question {
 		}
 		return mystr + last + count;
 	}
-	
+
 	public static String compressBetter(String str) {
 		int size = countCompression(str);
 		if (size >= str.length()) {
@@ -72,8 +73,8 @@ public class Question {
 		mystr.append(last);
 		mystr.append(count);
 		return mystr.toString();
-	}	
-	
+	}
+
 	public static String compressAlternate(String str) {
 		int size = countCompression(str);
 		if (size >= str.length()) {
@@ -95,7 +96,7 @@ public class Question {
 		index = setChar(array, last, index, count);
 		return String.valueOf(array);
 	}
-	
+
 	public static void main(String[] args) {
 		String str = "abbccccccde";
 		int c = countCompression(str);
@@ -105,5 +106,21 @@ public class Question {
 		System.out.println("Old String (len = " + str.length() + "): " + str);
 		System.out.println("New String (len = " + str2.length() + "): " + str2);
 		System.out.println("Potential Compression: " + c);
+
+		System.out.println("");
+		System.out.println("Another test");
+
+		str = "abcdefggggggggg";
+		System.out.println("Compression: " + countCompression(str));
+		System.out.println("Compression: " + compressBad(str));
+		System.out.println("Compression: " + compressBetter(str));
+		System.out.println("Compression: " + compressAlternate(str));
+
+		str = "abcdefgg";
+		System.out.println("Compression: " + countCompression(str));
+		System.out.println("Compression: " + compressBad(str));
+		System.out.println("Compression: " + compressBetter(str));
+		System.out.println("Compression: " + compressAlternate(str));
+
 	}
 }
