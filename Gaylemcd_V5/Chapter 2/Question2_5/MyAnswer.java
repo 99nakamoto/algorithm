@@ -5,6 +5,13 @@ import CtCILibrary.LinkedListNode;
 public class MyAnswer {
 
 	private static LinkedListNode addLists(LinkedListNode l1, LinkedListNode l2) {
+		// assume l1 and l2 are same length
+		int sum = l1.data + l2.data;
+		if (l1.next == null && l2.next == null) {
+			PartialSum lastDigit = new PartialSum();
+			lastDigit.sum = new LinkedListNode(sum % 10, null, null);
+			lastDigit.carry = sum / 10;
+		}
 		return l1;
 	}
 
