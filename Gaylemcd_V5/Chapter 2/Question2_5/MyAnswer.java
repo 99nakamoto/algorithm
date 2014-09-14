@@ -4,15 +4,18 @@ import CtCILibrary.LinkedListNode;
 
 public class MyAnswer {
 
-	private static LinkedListNode addLists(LinkedListNode l1, LinkedListNode l2) {
+	private static PartialSum addLists(LinkedListNode l1, LinkedListNode l2) {
 		// assume l1 and l2 are same length
 		int sum = l1.data + l2.data;
-		if (l1.next == null && l2.next == null) {
-			PartialSum lastDigit = new PartialSum();
-			lastDigit.sum = new LinkedListNode(sum % 10, null, null);
-			lastDigit.carry = sum / 10;
+		PartialSum curSum = new PartialSum();
+		if (l1 == null && l2 == null) {
+			curSum.sum = null;
+			curSum.carry = 0;
+		} else {
+			curSum.sum = new LinkedListNode(sum % 10, null, null);
+			curSum.carry = sum / 10;
 		}
-		return l1;
+		return null;
 	}
 
 	public static int linkedListToInt(LinkedListNode node) {
@@ -33,7 +36,7 @@ public class MyAnswer {
 		LinkedListNode lB2 = new LinkedListNode(9, null, lB1);
 		LinkedListNode lB3 = new LinkedListNode(1, null, lB2);
 
-		LinkedListNode list3 = addLists(lA1, lB1);
+		LinkedListNode list3 = addLists(lA1, lB1).sum;
 
 		System.out.println("  " + lA1.printForward());
 		System.out.println("+ " + lB1.printForward());
