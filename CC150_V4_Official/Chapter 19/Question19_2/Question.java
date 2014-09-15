@@ -36,19 +36,19 @@ public class Question {
 			}
 			/* Check for a win. */
 			if (num_row_matches == N) {
-				return board[i][0]; /* There’s a match on the ith row. */
+				return board[i][0]; /* Thereï¿½s a match on the ith row. */
 			}
 			
 			if (num_col_matches == N) {
-				return board[0][i]; /* There’s a match on ith column. */
+				return board[0][i]; /* Thereï¿½s a match on ith column. */
 			}
 		}
 		if (num_diagonal_matches1 == N) {
-			/* There’s a match on the downward diagonal */
+			/* Thereï¿½s a match on the downward diagonal */
 			return board[0][0];
 	 	}
 		if (num_diagonal_matches2 == N) {
-			/* There’s a match on the upward diagonal. */
+			/* Thereï¿½s a match on the upward diagonal. */
 			return board[N-1][0]; 
 		} 
 		return Piece.Empty;
