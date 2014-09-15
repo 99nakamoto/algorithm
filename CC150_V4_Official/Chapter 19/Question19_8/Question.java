@@ -18,6 +18,7 @@ public class Question {
 		}
 		return table;
 	}
+
 	public static int getFrequency(Hashtable<String, Integer> table, String word) {
 		if (table == null || word == null) {
 			return -1;
@@ -28,15 +29,15 @@ public class Question {
 		}
 		return 0;
 	}
-	
+
 	public static void main(String[] args) {
 		String[] wordlist = AssortedMethods.getLongTextBlobAsStringList();
 		Hashtable<String, Integer> dictionary = setupDictionary(wordlist);
-		
-		String[] words = {"the", "Lara", "and", "outcropping", "career", "it"};
+
+		String[] words = { "the", "Lara", "and", "outcropping", "career", "it" };
 		for (String word : words) {
 			System.out.println(word + ": " + getFrequency(dictionary, word));
 		}
 	}
-	
+
 }
