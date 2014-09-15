@@ -4,13 +4,13 @@ package algo.lowlevel;
  * I refered to Java source code to implementing this HashMap
  */
 
-public class HashMapImpl {
+public class HashMapJavaSrc {
 
 	Pair[] table;
 	float loadFactor;
 	int size;
 
-	public HashMapImpl(int initialCapacity, float loadFactor) {
+	public HashMapJavaSrc(int initialCapacity, float loadFactor) {
 		if (initialCapacity < 0 || loadFactor <= 0) {
 			return;
 		}
@@ -64,7 +64,7 @@ public class HashMapImpl {
 	}
 
 	public static void main(String[] args) {
-		HashMapImpl map = new HashMapImpl(16, 0.5f);
+		HashMapJavaSrc map = new HashMapJavaSrc(16, 0.5f);
 		map.put(1, "aaa");
 		map.put(2, "bbbb");
 		map.put(3, "ccccc");
