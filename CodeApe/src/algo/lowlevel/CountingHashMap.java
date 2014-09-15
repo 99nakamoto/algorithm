@@ -2,10 +2,10 @@ package algo.lowlevel;
 
 import java.util.HashMap;
 
-public class WrapperHashMap {
+public class CountingHashMap {
 
 	public static void main(String[] args) {
-		WrapperHashMap ins = new WrapperHashMap();
+		CountingHashMap ins = new CountingHashMap();
 		ins.solution();
 	}
 

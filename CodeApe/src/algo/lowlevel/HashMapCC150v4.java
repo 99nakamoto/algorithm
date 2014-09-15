@@ -8,12 +8,12 @@ import java.util.LinkedList;
  *  
  */
 
-public class HashMapCC150<K, V> {
+public class HashMapCC150v4<K, V> {
 
 	private static final int SIZE = 10;
 	LinkedList<Cell<K, V>>[] items;
 
-	public HashMapCC150() {
+	public HashMapCC150v4() {
 		items = (LinkedList<Cell<K, V>>[]) new LinkedList[SIZE];
 	}
 
@@ -57,7 +57,7 @@ public class HashMapCC150<K, V> {
 	}
 
 	public static void main(String[] args) {
-		HashMapCC150<String, String> map = new HashMapCC150<String, String>();
+		HashMapCC150v4<String, String> map = new HashMapCC150v4<String, String>();
 		map.put("kevin", "durant");
 		map.put("steven", "curry");
 		map.put("al", "jefferson");

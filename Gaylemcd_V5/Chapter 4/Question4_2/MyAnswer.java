@@ -1,34 +1,37 @@
 package Question4_2;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
-public class Question {
+public class MyAnswer {
 
 	public static boolean search(Graph g, Node start, Node end) {
-		LinkedList<Node> q = new LinkedList<Node>();
-		for (Node u : g.getNodes()) {
-			if (u == null)
-				continue;
-			u.state = State.Unvisited;
+		if (start == null || end == null) {
+			return false;
+		} else if (start == end) {
+			return true;
 		}
-		start.state = State.Visiting;
-		q.add(start);
-		Node u;
+		// bfs search
+		Queue<Node> q = new LinkedList<Node>();
+		q.offer(start);
 		while (!q.isEmpty()) {
-			u = q.removeFirst();
-			if (u != null) {
-				for (Node v : u.getAdjacent()) {
-					if (v.state == State.Unvisited) {
-						if (v == end) {
-							return true;
-						} else {
-							v.state = State.Visiting;
-							q.add(v);
-						}
+			Node cur = q.poll();
+			if (cur == end) {
+				System.out.println("something is really wrong. ");
+			}
+			cur.state = State.Visiting;
+			for (Node nei : cur.getAdjacent()) {
+				if (nei.state == State.Visited) {
+					continue;
+				} else {
+					if (nei == end) {
+						return true;
+					} else {
+						q.offer(nei);
 					}
 				}
-				u.state = State.Visited;
 			}
+			cur.state = State.Visited;
 		}
 		return false;
 	}
@@ -36,9 +39,14 @@ public class Question {
 	public static void main(String a[]) {
 		Graph g = createNewGraph();
 		Node[] n = g.getNodes();
+
 		Node start = n[3];
 		Node end = n[5];
-		System.out.println(search(g, start, end));
+		System.out.println(search(g, start, end) + " should be true");
+
+		start = n[3];
+		end = n[6];
+		System.out.println(search(g, start, end) + " should be false");
 	}
 
 	public static Graph createNewGraph() {
