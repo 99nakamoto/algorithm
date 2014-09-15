@@ -1,10 +1,12 @@
 package Question20_7;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Set;
 
 public class Question {
+
 	public static void printLongestWord(String arr[]) {
 		HashMap<String, Boolean> map = new HashMap<String, Boolean>();
 		for (String str : arr) {
@@ -17,17 +19,18 @@ public class Question {
 			Set<String> keys = map.keySet();
 			String keyArr[] = new String[keys.size()];
 			int k = 0;
-			for (String s : keys){
+			for (String s : keys) {
 				keyArr[k] = new String(s);
 				k++;
 			}
 			/* Sort so that we get the longest string to replace */
 			Arrays.sort(keyArr, new LengthComparator());
-			for (String j : keyArr){
-				if (j.equals(arr[i])) continue;
+			for (String j : keyArr) {
+				if (j.equals(arr[i]))
+					continue;
 				str = str.replaceAll(j, "");
 			}
-			/* If we get a string of size 0, it’s the required word */
+			/* If we get a string of size 0, it's the required word */
 			if (str.length() == 0) {
 				System.out.println("Longest word: " + arr[i]);
 				return;
@@ -37,9 +40,30 @@ public class Question {
 	}
 
 	public static void main(String[] args) {
-		String arr[] = {"test", "tester", "testertest", "testing", 
-				"apple", "seattle", "banana",  "batting", "cat", 
-				"bat", "testingtester", "testbattingcat"};
+		String[] arr;
+
+		arr = new String[] { "test", "tester", "testertest", "testing",
+				"apple", "seattle", "banana", "batting", "cat", "bat",
+				"testingtester", "testbattingcat" };
 		printLongestWord(arr);
+
+		System.out.println();
+		System.out.println("This solution is wrong, look: ");
+
+		arr = new String[] { "abcd", "abc", "ab", "cd" };
+		printLongestWord(arr);
+
+		arr = new String[] { "abc", "ab", "a", "bc" };
+		printLongestWord(arr);
+	}
+}
+
+class LengthComparator implements Comparator<String> {
+	public int compare(String o1, String o2) {
+		if (o1.length() < o2.length())
+			return 1;
+		if (o1.length() > o2.length())
+			return -1;
+		return 0;
 	}
 }
