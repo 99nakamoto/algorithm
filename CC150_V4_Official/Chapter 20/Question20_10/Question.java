@@ -1,7 +1,5 @@
 package Question20_10;
 
-import java.awt.List;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
@@ -12,7 +10,9 @@ import java.util.TreeSet;
 
 public class Question {
 
-	public static LinkedList<String> transform(String startWord, String stopWord, Set<String> dictionary) {
+	public static LinkedList<String> transform(String startWord,
+			String stopWord, Set<String> dictionary) {
+		
 		startWord = startWord.toUpperCase();
 		stopWord = stopWord.toUpperCase();
 		Queue<String> actionQueue = new LinkedList<String>();
@@ -27,7 +27,7 @@ public class Question {
 			// For each possible word v from w with one edit operation
 			for (String v : getOneEditWords(w)) {
 				if (v.equals(stopWord)) {
-					// Found our word!  Now, back track.
+					// Found our word! Now, back track.
 					LinkedList<String> list = new LinkedList<String>();
 					// Append v to list
 					list.add(v);
@@ -66,7 +66,7 @@ public class Question {
 		}
 		return words;
 	}
-	
+
 	public static HashSet<String> setupDictionary(String[] words) {
 		HashSet<String> hash = new HashSet<String>();
 		for (String word : words) {
@@ -76,7 +76,9 @@ public class Question {
 	}
 
 	public static void main(String[] args) {
-		String[] words = {"maps", "tan", "tree", "apple", "cans", "help", "aped", "free", "apes", "flat", "trap", "fret", "trip", "trie", "frat", "fril"};
+		String[] words = { "maps", "tan", "tree", "apple", "cans", "help",
+				"aped", "free", "apes", "flat", "trap", "fret", "trip", "trie",
+				"frat", "fril" };
 		HashSet<String> dict = setupDictionary(words);
 		LinkedList<String> list = transform("tree", "flat", dict);
 		for (String word : list) {
