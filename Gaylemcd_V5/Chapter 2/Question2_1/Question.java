@@ -1,12 +1,12 @@
 package Question2_1;
 
 import java.util.HashSet;
-import java.util.Hashtable;
+import java.util.Set;
 
-import CtCILibrary.AssortedMethods;
 import CtCILibrary.LinkedListNode;
 
 public class Question {
+
 	public static void deleteDupsA(LinkedListNode n) {
 		HashSet<Integer> set = new HashSet<Integer>();
 		LinkedListNode previous = null;
@@ -20,48 +20,16 @@ public class Question {
 			n = n.next;
 		}
 	}
-	
-	public static void deleteDupsC(LinkedListNode head) {
-		if (head == null) return;
-		LinkedListNode previous = head;
-		LinkedListNode current = previous.next;
-		while (current != null) {
-			// Look backwards for dups, and remove any that you see.
-			LinkedListNode runner = head;
-			while (runner != current) { 
-				if (runner.data == current.data) {
-					LinkedListNode tmp = current.next;
-					previous.next = tmp;
-					current = tmp;
-					/* We know we can't have more than one dup preceding
-					 * our element since it would have been removed 
-					 * earlier. */
-				    break;
-				}
-				runner = runner.next;
-			}
-			
-			/* If runner == current, then we didn't find any duplicate 
-			 * elements in the previous for loop.  We then need to 
-			 * increment current.  
-			 * If runner != current, then we must have hit the ‘break’ 
-			 * condition, in which case we found a dup and current has
-			 * already been incremented.*/
-			if (runner == current) {
-				previous = current;
-		        current = current.next;
-			}
-		}
-	}
-	
+
 	public static void deleteDupsB(LinkedListNode head) {
-		if (head == null) return;
-		
+		if (head == null)
+			return;
+
 		LinkedListNode current = head;
 		while (current != null) {
 			/* Remove all future nodes that have the same value */
 			LinkedListNode runner = current;
-			while (runner.next != null) { 
+			while (runner.next != null) {
 				if (runner.next.data == current.data) {
 					runner.next = runner.next.next;
 				} else {
@@ -70,22 +38,107 @@ public class Question {
 			}
 			current = current.next;
 		}
-	}	
-	
-	public static void main(String[] args) {	
-		LinkedListNode first = new LinkedListNode(0, null, null); //AssortedMethods.randomLinkedList(1000, 0, 2);
+	}
+
+	public static void deleteDupsC(LinkedListNode head) {
+		if (head == null)
+			return;
+		LinkedListNode previous = head;
+		LinkedListNode current = previous.next;
+		while (current != null) {
+			// Look backwards for dups, and remove any that you see.
+			LinkedListNode runner = head;
+			while (runner != current) {
+				if (runner.data == current.data) {
+					LinkedListNode tmp = current.next;
+					previous.next = tmp;
+					current = tmp;
+					/*
+					 * We know we can't have more than one dup preceding our
+					 * element since it would have been removed earlier.
+					 */
+					break;
+				}
+				runner = runner.next;
+			}
+
+			/*
+			 * If runner == current, then we didn't find any duplicate elements
+			 * in the previous for loop. We then need to increment current. If
+			 * runner != current, then we must have hit the ï¿½breakï¿½ condition,
+			 * in which case we found a dup and current has already been
+			 * incremented.
+			 */
+			if (runner == current) {
+				previous = current;
+				current = current.next;
+			}
+		}
+	}
+
+	public static void deleteDupsMe1(LinkedListNode head) {
+		if (head == null) {
+			return;
+		}
+		Set<Integer> set = new HashSet<Integer>();
+		set.add(head.data);
+		LinkedListNode p = head;
+		while (p.next != null) {
+			while (p.next != null && set.contains(p.next.data)) {
+				p.next = p.next.next;
+			}
+			if (p.next != null) {
+				p = p.next;
+				set.add(p.data);
+			}
+		}
+	}
+
+	public static void deleteDupsMe2(LinkedListNode head) {
+		LinkedListNode p = head;
+		while (p.next != null) {
+			int curVal = p.data;
+			// delete all nodes with data = curVal
+			LinkedListNode runner = p;
+			while (runner != null && runner.next != null) {
+				while (runner.next != null && runner.next.data == curVal) {
+					runner.next = runner.next.next;
+				}
+				runner = runner.next;
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		LinkedListNode first = new LinkedListNode(0, null, null); // AssortedMethods.randomLinkedList(1000,
+																	// 0, 2);
 		LinkedListNode head = first;
 		LinkedListNode second = first;
 		for (int i = 1; i < 8; i++) {
-			second = new LinkedListNode(i % 2, null, null);
+			if (i != 6)
+				second = new LinkedListNode(i % 2, null, null);
+			else
+				second = new LinkedListNode(i % 2 + 1, null, null);
 			first.setNext(second);
 			second.setPrevious(first);
 			first = second;
 		}
-		System.out.println(head.printForward());
 		LinkedListNode clone = head.clone();
+		LinkedListNode cloneMe1 = head.clone();
+		LinkedListNode cloneMe2 = head.clone();
+
+		System.out.println(head.printForward());
+
 		deleteDupsA(head);
 		System.out.println(head.printForward());
-		deleteDupsC(clone);
+
+		deleteDupsB(clone);
+		System.out.println(clone.printForward());
+
+		deleteDupsMe1(cloneMe1);
+		System.out.println(cloneMe1.printForward());
+
+		deleteDupsMe2(cloneMe2);
+		System.out.println(cloneMe2.printForward());
 	}
 }

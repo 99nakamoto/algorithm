@@ -25,14 +25,38 @@ public class Question {
 			}
 		}
 	}
-	
+
+	public static char[] replaceSpacesMe(String str) {
+		int spaces = 0;
+		for (char c : str.toCharArray()) {
+			if (c == ' ')
+				spaces++;
+		}
+		char[] result = new char[str.length() + (2 * spaces)];
+		int p = 0;
+		for (int i = 0; i < str.length(); i++) {
+			if (str.charAt(i) != ' ') {
+				result[p++] = str.charAt(i);
+			} else {
+				result[p++] = '%';
+				result[p++] = '2';
+				result[p++] = '0';
+			}
+		}
+		return result;
+	}
+
 	public static void main(String[] args) {
 		String str = "abc d e f";
 		char[] arr = new char[str.length() + 3 * 2 + 1];
 		for (int i = 0; i < str.length(); i++) {
 			arr[i] = str.charAt(i);
 		}
-		replaceSpaces(arr, str.length());	
-		System.out.println("\"" + AssortedMethods.charArrayToString(arr) + "\"");
+
+		replaceSpaces(arr, str.length());
+		System.out.println(AssortedMethods.charArrayToString(arr));
+
+		System.out.println(AssortedMethods
+				.charArrayToString(replaceSpacesMe(str)));
 	}
 }
