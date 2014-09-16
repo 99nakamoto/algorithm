@@ -2,10 +2,6 @@ package Question9_7;
 
 public class Question {
 
-	public enum Color {
-		Black, White, Red, Yellow, Green
-	}
-
 	public static String PrintColor(Color c) {
 		switch (c) {
 		case Black:
@@ -29,6 +25,21 @@ public class Question {
 			}
 			System.out.println();
 		}
+		System.out.println();
+	}
+
+	public static void PrintScreen(Color[][] screen1, Color[][] screen2) {
+		for (int i = 0; i < screen1.length; i++) {
+			for (int j = 0; j < screen1[0].length; j++) {
+				System.out.print(PrintColor(screen1[i][j]));
+			}
+			System.out.print(" ");
+			for (int j = 0; j < screen2[0].length; j++) {
+				System.out.print(PrintColor(screen2[i][j]));
+			}
+			System.out.println();
+		}
+		System.out.println();
 	}
 
 	public static int randomInt(int n) {
@@ -58,19 +69,33 @@ public class Question {
 
 	public static void main(String[] args) {
 		int N = 10;
-		Color[][] screen = new Color[N][N];
+		Color[][] screen1 = new Color[N][N];
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
-				screen[i][j] = Color.Black;
+				screen1[i][j] = Color.Black;
 			}
 		}
 		for (int i = 0; i < 100; i++) {
-			screen[randomInt(N)][randomInt(N)] = Color.Green;
+			screen1[randomInt(N)][randomInt(N)] = Color.Green;
 		}
-		PrintScreen(screen);
-		PaintFill(screen, 2, 2, Color.White);
-		System.out.println();
-		PrintScreen(screen);
+		Color[][] screen2 = new Color[N][N];
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				screen2[i][j] = screen1[i][j];
+			}
+		}
+
+		System.out.println("Original input:");
+		PrintScreen(screen1);
+
+		System.out.println("Solution(left), my answer(right)");
+		PaintFill(screen1, 2, 2, Color.White);
+		MyAnswer.PaintFill(screen2, 2, 2, Color.White);
+		PrintScreen(screen1, screen2);
 	}
 
+}
+
+enum Color {
+	Black, White, Red, Yellow, Green
 }
