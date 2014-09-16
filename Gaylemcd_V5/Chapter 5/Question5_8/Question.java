@@ -1,6 +1,7 @@
 package Question5_8;
 
 public class Question {
+	
 	public static int computeByteNum(int width, int x, int y) {
 		return (width * y + x) / 8;
 	}
