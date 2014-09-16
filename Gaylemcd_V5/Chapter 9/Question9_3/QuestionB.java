@@ -14,7 +14,7 @@ public class QuestionB {
 		}
 		return -1;
 	}
-	
+
 	public static int magicFast(int[] array, int start, int end) {
 		if (end < start || start < 0 || end >= array.length) {
 			return -1;
@@ -30,39 +30,46 @@ public class QuestionB {
 		if (left >= 0) {
 			return left;
 		}
-		
+
 		/* Search right */
 		int rightIndex = Math.max(midIndex + 1, midValue);
 		int right = magicFast(array, rightIndex, end);
-		
+
+		// right can be -1
 		return right;
 	}
-	
+
 	public static int magicFast(int[] array) {
 		return magicFast(array, 0, array.length - 1);
 	}
-	
+
 	/* Creates an array that is sorted */
 	public static int[] getSortedArray(int size) {
 		int[] array = AssortedMethods.randomArray(size, -1 * size, size);
 		Arrays.sort(array);
 		return array;
 	}
-	
+
 	public static void main(String[] args) {
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < 100; i++) {
 			int size = AssortedMethods.randomIntInRange(5, 20);
 			int[] array = getSortedArray(size);
 			int v2 = magicFast(array);
-			if (v2 == -1 && magicSlow(array) != -1) {
+			if (magicSlow(array) == -1) {
+				// do nothing
+			} else if (v2 == -1 && magicSlow(array) != -1) {
 				int v1 = magicSlow(array);
-				System.out.println("Incorrect value: index = -1, actual = " + v1 + " " + i);
+				System.out.println("Incorrect value: index = -1, actual = "
+						+ v1 + " " + i);
 				System.out.println(AssortedMethods.arrayToString(array));
 				break;
 			} else if (v2 > -1 && array[v2] != v2) {
-				System.out.println("Incorrect values: index= " + v2 + ", value " + array[v2]);
+				System.out.println("Incorrect values: index= " + v2
+						+ ", value " + array[v2]);
 				System.out.println(AssortedMethods.arrayToString(array));
 				break;
+			} else {
+				System.out.println("Found index = " + v2);
 			}
 		}
 	}
