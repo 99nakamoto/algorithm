@@ -13,26 +13,26 @@ public class MyAnswer {
 				return 0;
 			}
 		} else {
-			char num1 = exp.charAt(0);
-			char op = exp.charAt(1);
-			char num2 = exp.charAt(2);
-			// the answer comprised of 2 parts:
-			// 1. num1 evaluate with exp.substring(2)
-			// 2. num1 evaluate with num2, then modify the exp
+			for (int i = 1; i < exp.length(); i += 2) {
+				char op = exp.charAt(i);
+				String firstHalf = exp.substring(0, i);
+				String secondHalf = exp.substring(i + 1);
 
-			// part 1
-			if (exp.length() > 3) {
-				if (evaluate(num1, op, '0') == result) {
-					totalCount += countMyAnswer(exp.substring(2), false);
-				}
-				if (evaluate(num1, op, '1') == result) {
-					totalCount += countMyAnswer(exp.substring(2), true);
+				int firstHalfTrue = countMyAnswer(firstHalf, true);
+				int firstHalfFalse = countMyAnswer(firstHalf, false);
+				int secondHalfTrue = countMyAnswer(secondHalf, true);
+				int secondHalfFalse = countMyAnswer(secondHalf, false);
+
+				if (evaluate('0', op, '0') == result) {
+					totalCount += firstHalfFalse * secondHalfFalse;
+				} else if (evaluate('0', op, '1') == result) {
+					totalCount += firstHalfFalse * secondHalfTrue;
+				} else if (evaluate('1', op, '0') == result) {
+					totalCount += firstHalfTrue * secondHalfFalse;
+				} else if (evaluate('1', op, '1') == result) {
+					totalCount += firstHalfTrue * secondHalfTrue;
 				}
 			}
-			// part 2, calculate only if exp.length() is larger than 3
-			int firstResult = convertBoolToInt(evaluate(num1, op, num2));
-			String newExp = firstResult + exp.substring(3);
-			totalCount += countMyAnswer(newExp, result);
 		}
 		return totalCount;
 	}
