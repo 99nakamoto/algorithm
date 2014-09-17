@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import CtCILibrary.AssortedMethods;
 
-public class Question {
+public class QuestionNonDup {
 
 	public static int magicSlow(int[] array) {
 		for (int i = 0; i < array.length; i++) {
@@ -47,6 +47,26 @@ public class Question {
 		return array;
 	}
 
+	public static int myAnswerNonDup(int[] array) {
+		int len = array.length;
+		return helper(array, 0, len - 1);
+	}
+
+	public static int helper(int[] array, int left, int right) {
+		if (right < left) {
+			return -1;
+		}
+		int mid = left + (right - left) / 2;
+		if (array[mid] == mid) {
+			return mid;
+		} else if (array[mid] < mid) {
+			// discard all element to the left of array[mid]
+			return helper(array, mid + 1, right);
+		} else {
+			return helper(array, left, mid - 1);
+		}
+	}
+
 	public static void main(String[] args) {
 		for (int i = 0; i < 100; i++) {
 			int size = AssortedMethods.randomIntInRange(5, 20);
@@ -66,7 +86,8 @@ public class Question {
 				System.out.println(AssortedMethods.arrayToString(array));
 				break;
 			} else {
-				System.out.println("Found index = " + v2);
+				System.out.println("Found index = " + v2 + " "
+						+ myAnswerNonDup(array));
 			}
 		}
 	}
