@@ -63,6 +63,7 @@ public class QuestionNonDup {
 			// discard all element to the left of array[mid]
 			return helper(array, mid + 1, right);
 		} else {
+			// discard all element to the right of array[mid]
 			return helper(array, left, mid - 1);
 		}
 	}
