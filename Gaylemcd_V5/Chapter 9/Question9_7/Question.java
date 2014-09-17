@@ -88,14 +88,11 @@ public class Question {
 		System.out.println("Original input:");
 		PrintScreen(screen1);
 
-		System.out.println("Solution(left), my answer(right)");
+		System.out.println("Fill [2,2] with color 'W'... ");
 		PaintFill(screen1, 2, 2, Color.White);
 		MyAnswer.PaintFill(screen2, 2, 2, Color.White);
 		PrintScreen(screen1, screen2);
+		System.out.println("Solution(left), my answer(right)");
 	}
 
-}
-
-enum Color {
-	Black, White, Red, Yellow, Green
 }
