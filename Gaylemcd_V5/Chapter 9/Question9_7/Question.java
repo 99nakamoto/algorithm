@@ -79,20 +79,26 @@ public class Question {
 			screen1[randomInt(N)][randomInt(N)] = Color.Green;
 		}
 		Color[][] screen2 = new Color[N][N];
+		Color[][] screen3 = new Color[N][N];
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				screen2[i][j] = screen1[i][j];
+				screen3[i][j] = screen1[i][j];
 			}
 		}
 
 		System.out.println("Original input:");
-		PrintScreen(screen1);
-
 		System.out.println("Fill [2,2] with color 'W'... ");
+		PrintScreen(screen1);
 		PaintFill(screen1, 2, 2, Color.White);
-		MyAnswer.PaintFill(screen2, 2, 2, Color.White);
+
+		System.out.println("Solution(left), my answer 1(right)");
+		MyAnswer.PaintFill1(screen2, 2, 2, Color.White);
 		PrintScreen(screen1, screen2);
-		System.out.println("Solution(left), my answer(right)");
+
+		System.out.println("Solution(left), my answer 2(right)");
+		MyAnswer.PaintFill2(screen3, 2, 2, Color.White);
+		PrintScreen(screen1, screen3);
 	}
 
 }
