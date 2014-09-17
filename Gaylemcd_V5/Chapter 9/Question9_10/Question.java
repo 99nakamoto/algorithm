@@ -73,7 +73,62 @@ public class Question {
 
 	public static void main(String[] args) {
 
-		Box[] boxes = { new Box(3, 4, 1), new Box(8, 6, 2), new Box(7, 8, 3) };
+		Box[] boxes = { new Box(3, 3, 1), new Box(8, 6, 2), new Box(6, 4, 2),
+				new Box(7, 8, 2), new Box(7, 5, 3) };
+
+		test(boxes);
+
+		boxes[3] = new Box(7, 10, 2);
+		test(boxes);
+
+		// now test speed
+		testSpeedDP(boxes);
+		testSpeedR(boxes);
+		testSpeedMe(boxes);
+	}
+
+	private static final int ITERATIONS = 100000;
+
+	private static void testSpeedDP(Box[] boxes) {
+		long startTime = System.nanoTime();
+
+		for (int i = 0; i < ITERATIONS; i++) {
+			createStackDP(boxes, null, new HashMap<Box, ArrayList<Box>>());
+		}
+
+		long endTime = System.nanoTime();
+
+		long duration = (endTime - startTime) / ITERATIONS;
+		System.out.println("DP solution is        " + duration);
+	}
+
+	private static void testSpeedR(Box[] boxes) {
+		long startTime = System.nanoTime();
+
+		for (int i = 0; i < ITERATIONS; i++) {
+			createStackR(boxes, null);
+		}
+
+		long endTime = System.nanoTime();
+
+		long duration = (endTime - startTime) / ITERATIONS;
+		System.out.println("Recursive solution is " + duration);
+	}
+
+	private static void testSpeedMe(Box[] boxes) {
+		long startTime = System.nanoTime();
+
+		for (int i = 0; i < ITERATIONS; i++) {
+			MyAnswer.createStack(boxes);
+		}
+
+		long endTime = System.nanoTime();
+
+		long duration = (endTime - startTime) / ITERATIONS;
+		System.out.println("My solution is         " + duration);
+	}
+
+	private static void test(Box[] boxes) {
 
 		ArrayList<Box> stack = createStackDP(boxes, null,
 				new HashMap<Box, ArrayList<Box>>());
@@ -83,7 +138,6 @@ public class Question {
 			System.out.print(b.toString() + " on ");
 		}
 		System.out.println("finish.");
-		System.out.println();
 
 		stack = createStackR(boxes, null);
 		System.out.println("Recursive:");
@@ -92,7 +146,6 @@ public class Question {
 			System.out.print(b.toString() + " on ");
 		}
 		System.out.println("finish.");
-		System.out.println();
 
 		stack = MyAnswer.createStack(boxes);
 		System.out.println("My answer:");
@@ -101,6 +154,7 @@ public class Question {
 			System.out.print(b.toString() + " on ");
 		}
 		System.out.println("finish.");
+		System.out.println();
 	}
 
 }
