@@ -12,13 +12,6 @@ public class Box {
 		depth = d;
 	}
 
-	public boolean canBeUnder(Box b) {
-		if (width > b.width && height > b.height && depth > b.depth) {
-			return true;
-		}
-		return false;
-	}
-
 	public boolean canBeAbove(Box b) {
 		if (b == null) {
 			return true;
