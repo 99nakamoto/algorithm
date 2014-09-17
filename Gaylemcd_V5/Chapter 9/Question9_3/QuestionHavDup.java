@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import CtCILibrary.AssortedMethods;
 
-public class QuestionB {
+public class QuestionHavDup {
 
 	public static int magicSlow(int[] array) {
 		for (int i = 0; i < array.length; i++) {
@@ -50,6 +50,37 @@ public class QuestionB {
 		return array;
 	}
 
+	public static int myAnswerWithDup(int[] array) {
+		int len = array.length;
+		return helper(array, 0, len - 1);
+	}
+
+	public static int helper(int[] array, int left, int right) {
+		if (right < left) {
+			return -1;
+		}
+		int mid = left + (right - left) / 2;
+		if (array[mid] == mid) {
+			return mid;
+		} else {
+			int smaller = 0;
+			int larger = 0;
+			if (array[mid] < mid) {
+				smaller = array[mid];
+				larger = mid + 1;
+			} else if (array[mid] > mid) {
+				smaller = mid - 1;
+				larger = array[mid];
+			}
+			int leftResult = helper(array, left, smaller);
+			if (leftResult != -1) {
+				return leftResult;
+			} else {
+				return helper(array, larger, right);
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		for (int i = 0; i < 100; i++) {
 			int size = AssortedMethods.randomIntInRange(5, 20);
@@ -69,7 +100,8 @@ public class QuestionB {
 				System.out.println(AssortedMethods.arrayToString(array));
 				break;
 			} else {
-				System.out.println("Found index = " + v2);
+				System.out.println("Found index = " + v2 + " "
+						+ myAnswerWithDup(array));
 			}
 		}
 	}
