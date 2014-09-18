@@ -153,10 +153,10 @@ public class Question {
 
 		if (isDone) {
 			if (evaluate(expression, 0, expression.length() - 1) == result) {
-				System.out.println(expression + " = " + result);
+				// System.out.println(expression + " = " + result);
 				return 1;
 			} else {
-				System.out.println(expression + " = " + !result);
+				// System.out.println(expression + " = " + !result);
 				return 0;
 			}
 		}
@@ -342,14 +342,12 @@ public class Question {
 	}
 
 	public static void main(String[] args) {
-		test("0^1");
-		test("1^0");
 		test("1^0|0|1");
 		test("0^0|1&1^1|0|1");
 	}
 
 	private static void test(String exp) {
-
+		System.out.println("Test input: '" + exp + "'");
 		boolean result = true;
 
 		bruteForce(exp, new HashMap<String, Boolean>(), result,
