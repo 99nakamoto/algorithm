@@ -2,18 +2,19 @@ package Question11_6;
 
 import CtCILibrary.*;
 
-public class QuestionA {
+public class MyAnswer {
 
-	public static boolean findElement(int[][] matrix, int elem) {
-		int row = 0;
-		int col = matrix[0].length - 1;
-		while (row < matrix.length && col >= 0) {
-			if (matrix[row][col] == elem) {
+	public static boolean findElement(int[][] matrix, int target) {
+		// start from bottom left corner
+		int x = matrix.length - 1;
+		int y = 0;
+		while (x >= 0 && y < matrix[0].length) {
+			if (matrix[x][y] == target) {
 				return true;
-			} else if (matrix[row][col] > elem) {
-				col--;
+			} else if (matrix[x][y] > target) {
+				x--;
 			} else {
-				row++;
+				y++;
 			}
 		}
 		return false;
