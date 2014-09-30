@@ -110,10 +110,15 @@ public class Question {
 		sentence = "As one of the top companies in the world, Google will surely attract the attention of computer gurus. This does not, however, mean the company is for everyone.";
 		sentence = clean(sentence);
 		System.out.println(sentence);
+
 		// Result v = parse(0, 0, new Hashtable<Integer, Result>());
 		// System.out.println(v.parsed);
 		int v = parseOptimized(0, 0, new Hashtable<Integer, Integer>());
-		System.out.println(v);
+		System.out.println("correct answer is " + v);
+
+		int w = MyAnswer.parse(sentence, dictionary);
+		System.out.println("and my answer is " + w);
+
 	}
 
 }
