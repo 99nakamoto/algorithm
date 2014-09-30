@@ -1,7 +1,7 @@
 package Question17_14;
 
 public class Result {
-	
+
 	public int invalid = Integer.MAX_VALUE;
 	public String parsed = "";
 
