@@ -78,7 +78,9 @@ public class QuestionB {
 		printAsTree(root, "");
 		BiNode n = convert(root);
 		printLinkedListTree(n);
-		System.out.println(count);
+
+		System.out.println();
+		System.out.println("Count is " + count);
 	}
 
 }
