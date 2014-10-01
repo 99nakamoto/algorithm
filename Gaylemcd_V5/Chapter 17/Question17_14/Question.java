@@ -10,43 +10,6 @@ public class Question {
 	public static String sentence;
 	public static Trie dictionary;
 
-	/* incomplete code */
-	public static Result parse(int wordStart, int wordEnd,
-			Hashtable<Integer, Result> cache) {
-		if (wordEnd >= sentence.length()) {
-			return new Result(wordEnd - wordStart, sentence
-					.substring(wordStart).toUpperCase());
-		}
-		if (cache.containsKey(wordStart)) {
-			return cache.get(wordStart).clone();
-		}
-		String currentWord = sentence.substring(wordStart, wordEnd + 1);
-		boolean validPartial = dictionary.contains(currentWord, false);
-		boolean validExact = validPartial
-				&& dictionary.contains(currentWord, true);
-
-		/* break current word */
-		Result bestExact = parse(wordEnd + 1, wordEnd + 1, cache);
-		if (validExact) {
-			bestExact.parsed = currentWord + " " + bestExact.parsed;
-		} else {
-			bestExact.invalid += currentWord.length();
-			bestExact.parsed = currentWord.toUpperCase() + " "
-					+ bestExact.parsed;
-		}
-
-		/* extend current word */
-		Result bestExtend = null;
-		if (validPartial) {
-			bestExtend = parse(wordStart, wordEnd + 1, cache);
-		}
-
-		/* find best */
-		Result best = Result.min(bestExact, bestExtend);
-		cache.put(wordStart, best.clone());
-		return best;
-	}
-
 	public static int parseOptimized(int wordStart, int wordEnd,
 			Hashtable<Integer, Integer> cache) {
 		if (wordEnd >= sentence.length()) {
@@ -78,6 +41,7 @@ public class Question {
 	}
 
 	public static int parseSimple(int wordStart, int wordEnd) {
+		// this method doesn't work
 		if (wordEnd >= sentence.length()) {
 			return wordEnd - wordStart;
 		}
@@ -97,28 +61,38 @@ public class Question {
 		return Math.min(bestExact, bestExtend);
 	}
 
+	public static void main(String[] args) {
+
+		int v;
+		dictionary = AssortedMethods.getTrieDictionary();
+		sentence = clean("As one of the top companies in the world, Google will surely attract the attention of computer gurus. This does not, however, mean the company is for everyone.");
+		System.out.println(sentence);
+
+		// v = parseSimple(0, 0);
+		// System.out.println("simple answer is " + v);
+		v = parseOptimized(0, 0, new Hashtable<Integer, Integer>());
+		System.out.println("optimized answer is " + v);
+		System.out.println();
+
+//		sentence = "As one of the top TozT companies.";
+//		sentence = clean(sentence);
+//		System.out.println(sentence);
+		v = MyAnswer.parse(sentence, dictionary);
+		System.out.println("my answer is " + v);
+		System.out.println();
+
+		System.out.println("Parsed document: ");
+		Result vv = Result.parse(sentence, dictionary, 0, 0,
+				new Hashtable<Integer, Result>());
+		System.out.println(vv.parsed);
+	}
+
 	public static String clean(String str) {
 		char[] punctuation = { ',', '"', '!', '.', '\'', '?', ',' };
 		for (char c : punctuation) {
 			str = str.replace(c, ' ');
 		}
 		return str.replace(" ", "").toLowerCase();
-	}
-
-	public static void main(String[] args) {
-		dictionary = AssortedMethods.getTrieDictionary();
-		sentence = "As one of the top companies in the world, Google will surely attract the attention of computer gurus. This does not, however, mean the company is for everyone.";
-		sentence = clean(sentence);
-		System.out.println(sentence);
-
-		// Result v = parse(0, 0, new Hashtable<Integer, Result>());
-		// System.out.println(v.parsed);
-		int v = parseOptimized(0, 0, new Hashtable<Integer, Integer>());
-		System.out.println("correct answer is " + v);
-
-		int w = MyAnswer.parse(sentence, dictionary);
-		System.out.println("and my answer is " + w);
-
 	}
 
 }
