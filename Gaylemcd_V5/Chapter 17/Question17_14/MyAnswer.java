@@ -4,41 +4,23 @@ import CtCILibrary.Trie;
 
 public class MyAnswer {
 
-	private static int min = Integer.MAX_VALUE;
-
-	public static int parse(String doc, Trie dictionary) {
-		helper(doc, dictionary, 0, 0, 0);
-		return min;
-	}
-
-	private static void helper(String doc, Trie dict, int from, int until,
-			int count) {
-		
-		System.out.println("Check " + from + " to " + until);
+	public static int parse(String doc, Trie dict) {
 		int len = doc.length();
-
-		// get the substring in the range of [from, until]
-		// check whether we should insert a space after 'until'
-		if (until == len) {
-			if (from == len) {
-				// last word finishes at the end of the sentence
-				min = Math.min(min, count);
-			} else {
-				// do nothing
+		int[] dp = new int[len + 1];
+		// dp[i] denotes the number of special chars in first i chars of docs
+		for (int i = 1; i <= len; i++) {
+			dp[i] =  Integer.MAX_VALUE;
+			for (int j = 0; j < i; j++) {
+				String str = doc.substring(j, i);
+				if (dict.contains(str, true)) {
+					// consider (i to j) a valid word
+					dp[i] = Math.min(dp[i], dp[j]);
+				} else {
+					// consider (i to j) special chars
+					dp[i] = Math.min(dp[i], dp[j] + i - j);
+				}
 			}
-			return;
 		}
-
-		// if we insert space after 'until'
-		String substr = doc.substring(from, until + 1);
-		if (dict.contains(substr)) {
-			helper(doc, dict, until + 1, until + 1, count);
-		} else {
-			helper(doc, dict, until + 1, until + 1, count + until - from + 1);
-		}
-		
-		// if we do not insert space after 'until'
-		helper(doc, dict, from, until + 1, count);
+		return dp[len];
 	}
-
 }
