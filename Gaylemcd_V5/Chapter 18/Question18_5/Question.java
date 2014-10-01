@@ -27,16 +27,17 @@ public class Question {
 		}
 		return min;
 	}
-	
+
 	public static String wordAtLocation(String[] words, int loc) {
 		if (loc < 0 || loc >= words.length) {
 			return null;
 		}
 		return words[loc];
 	}
-	
+
 	// Method to confirm other result
-	public static boolean searchConfirm(String[] words, String word1, String word2, int distance) {
+	public static boolean searchConfirm(String[] words, String word1,
+			String word2, int distance) {
 		boolean found_at_distance = false;
 		for (int i = 0; i < words.length; i++) {
 			if (words[i].equals(word1)) {
@@ -47,7 +48,7 @@ public class Question {
 						return false;
 					}
 				}
-				
+
 				String loc2a = wordAtLocation(words, i - distance);
 				String loc2b = wordAtLocation(words, i + distance);
 				if (word2.equals(loc2a) || word2.equals(loc2b)) {
@@ -57,18 +58,21 @@ public class Question {
 		}
 		return found_at_distance;
 	}
-	
+
 	public static void main(String[] args) {
 		String[] wordlist = AssortedMethods.getLongTextBlobAsStringList();
 		System.out.println(AssortedMethods.stringArrayToString(wordlist));
-		
-		String[][] pairs = {{"Lara", "the"}, {"river", "life"}, {"path", "their"}, {"life", "a"}};
+		System.out.println();
+
+		String[][] pairs = { { "Lara", "the" }, { "river", "life" },
+				{ "path", "their" }, { "life", "a" } };
 		for (String[] pair : pairs) {
 			String word1 = pair[0];
 			String word2 = pair[1];
 			int distance = shortest(wordlist, word1, word2);
 			boolean confirm = searchConfirm(wordlist, word1, word2, distance);
-			System.out.println("Distance between <" + word1 + "> and <" + word2 + ">: " + distance + " (" + confirm + ")");
+			System.out.println("Distance between <" + word1 + "> and <" + word2
+					+ ">: " + distance + " (" + confirm + ")");
 		}
 	}
 
