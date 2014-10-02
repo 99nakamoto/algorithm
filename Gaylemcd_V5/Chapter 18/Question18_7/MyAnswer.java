@@ -1,19 +1,18 @@
 package Question18_7;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
 
 public class MyAnswer {
 
 	public static void printLongestWord(String[] arr) {
 		Arrays.sort(arr, new LengthComparator());
-		List<String> list = new ArrayList<String>(); 
-		for (String str: arr) {
-			list.add(str);
+		HashSet<String> set = new HashSet<String>();
+		for (String str : arr) {
+			set.add(str);
 		}
-		for (String word: arr) {
-			if (canDivide(word, arr)) {
+		for (String word : arr) {
+			if (canDivide(word, 0, set)) {
 				System.out.println(word);
 				return;
 			}
@@ -21,19 +20,22 @@ public class MyAnswer {
 		System.out.println("can not find such word");
 	}
 
-	private static boolean canDivide(String word, String[] arr) {
-		
+	private static boolean canDivide(String word, int from, HashSet<String> set) {
+		if (from == word.length()) {
+			return true;
+		}
+		for (int i = from; i < word.length(); i++) {
+			String str = word.substring(from, i + 1);
+			if (from == 0 && i == word.length() - 1) {
+				continue;
+			} else if (!set.contains(str)) {
+				continue;
+			}
+			if (canDivide(word, i + 1, set)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
-	private static boolean helper(String word, int pos, int len, String[] arr) {
-		if (pos == len) {
-			return true;
-		}
-		for (int i = pos + 1; i <= len; i++) {
-			String str = word.substring(pos, i);
-			if (arr.)
-		}
-		return false;
-	}
 }
