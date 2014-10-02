@@ -1,7 +1,11 @@
 package Question18_7;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+
+import CtCILibrary.AssortedMethods;
 
 public class Question {
 
@@ -39,11 +43,17 @@ public class Question {
 	public static void main(String[] args) {
 		String[] arr = createGiantArray();
 		System.out.println("answer: ");
+		long startTime = System.nanoTime();
 		printLongestWord(arr);
+		long endTime = System.nanoTime();
+		System.out.println((endTime - startTime) / 1000000000 + " sec");
 		System.out.println();
 
 		System.out.println("my answer: ");
+		startTime = System.nanoTime();
 		MyAnswer.printLongestWord(arr);
+		endTime = System.nanoTime();
+		System.out.println((endTime - startTime) / 1000000000 + " sec");
 
 	}
 
@@ -181,7 +191,7 @@ public class Question {
 				"worm", "wound", "writing", "wrong", "year", "yellow", "yes",
 				"yesterday", "you", "young" };
 
-		return arr;
+		// return arr;
 
 		/*
 		 * To see performance on a larger array, comment / delete the above
@@ -189,22 +199,22 @@ public class Question {
 		 * giant array by concatenating words from the above list.
 		 */
 
-		// List<String> list = new ArrayList<String>();
-		// for (int i = 0; i < arr.length; i++) {
-		// int n = AssortedMethods.randomIntInRange(0, 1000);
-		// String s = arr[i];
-		// for (int j = 0; j < n; j++) {
-		// int index = AssortedMethods.randomIntInRange(0, i);
-		// s += arr[index];
-		// }
-		// list.add(s);
-		// list.add(arr[i]);
-		// }
-		// String[] ar = new String[list.size()];
-		// for (int i = 0; i < list.size(); i++) {
-		// ar[i] = list.get(i);
-		// }
-		// return ar;
+		List<String> list = new ArrayList<String>();
+		for (int i = 0; i < arr.length; i++) {
+			int n = AssortedMethods.randomIntInRange(0, 1000);
+			String s = arr[i];
+			for (int j = 0; j < n; j++) {
+				int index = AssortedMethods.randomIntInRange(0, i);
+				s += arr[index];
+			}
+			list.add(s);
+			list.add(arr[i]);
+		}
+		String[] ar = new String[list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			ar[i] = list.get(i);
+		}
+		return ar;
 
 	}
 }
