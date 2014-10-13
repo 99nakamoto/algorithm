@@ -15,19 +15,19 @@ public class CallHandler {
 
     public CallHandler() {
         // create freshers
-        ArrayList<Employee> freshers = new ArrayList(NUM_FRESHERS);
+        ArrayList<Employee> freshers = new ArrayList<Employee>(NUM_FRESHERS);
         for (int k = 0; k < NUM_FRESHERS - 1; k++) {
             freshers.add(new Fresher());
         }
         employeeLevels[0] = freshers;
 
         // create technical lead
-        ArrayList<Employee> tls = new ArrayList(1);
+        ArrayList<Employee> tls = new ArrayList<Employee>(1);
         tls.add(new TechLead()); // we have 1 technical lead
         employeeLevels[1] = tls;
 
         // create product manager
-        ArrayList<Employee> pms = new ArrayList(1);
+        ArrayList<Employee> pms = new ArrayList<Employee>(1);
         pms.add(new ProductManager()); // we have 1 product manager
         employeeLevels[1] = pms;
     }
