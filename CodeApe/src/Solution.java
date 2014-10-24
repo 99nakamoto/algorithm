@@ -1,48 +1,73 @@
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
-
 public class Solution {
-	public int ladderLength(String start, String end, Set<String> dict) {
-		if (start == null || end == null || dict == null) {
-			return 0;
-		} else if (start.equals(end)) {
-			return 1;
+	public String addBinary(String a, String b) {
+		if (a == null || b == null) {
+			return "";
 		}
-		dict.remove(start);
-		dict.remove(end);
-		Queue<String> q = new LinkedList<String>();
-		q.offer(start);
-		int distance = 2;
-		while (!q.isEmpty()) {
-			for (int u = q.size(); u > 0; u--) {
-				start = q.poll();
-				for (int i = 0; i < start.length(); i++) {
-					for (char c = 'a'; c <= 'z'; c++) {
-						String word = start.substring(0, i) + c
-								+ start.substring(i + 1);
-						if (word.equals(end)) {
-							return distance;
-						}
-						if (dict.contains(word)) {
-							dict.remove(word);
-							q.offer(word);
-						}
-					}
-				}
-			}
-			distance++;
-		}
-		return 0;
+		int m = a.length();
+		int n = b.length();
+		int total = Math.max(m, n) + 1;
+		int[] ans = new int[total];
+
+		return null;
 	}
 
 	public static void main(String[] args) {
-		Solution ins = new Solution();
-		Set<String> dict = new HashSet<String>();
-		dict.add("a");
-		dict.add("b");
-		dict.add("c");
-		System.out.println(ins.ladderLength("a", "b", dict));
+		System.out
+				.println("SELECT "
+						+ "F.SUMMARIZE_TOTAL, "
+						+ "F.COUNT_TO_SUMMARIZE,"
+						+ "F.ACCOUNTING_TITLE,F.RELATION,F.TERM_ID, "
+						+ "S.CUSTOMER_NAME, "
+						+ "S.CUSTOMER_ADDRESS, "
+						+ "S.TRANSACTION_DETAIL "
+						+ "FROM ("
+						+ "SELECT "
+						+ "SUM(ENDING_BALANCE) SUMMARIZE_TOTAL, "
+						+ "COUNT(*) COUNT_TO_SUMMARIZE,"
+						+ "ACCOUNTING_TITLE, "
+						+ "RELATION, "
+						+ "TERM_ID "
+						+ "FROM "
+						+ "AC_AD_FORM004A "
+						+ "WHERE "
+						+ "CORP_ID = ? "
+						+ "AND ENDING_BALANCE < ? "
+						+ " AND RELATION <> 0 "
+						+ "AND IS_SUMMARIZED_RECORD = 0 "
+						+ "AND TERM_ID IN (?,?) "
+						+ "GROUP BY ACCOUNTING_TITLE, RELATION, TERM_ID "
+						+ "ORDER BY ACCOUNTING_TITLE, RELATION, TERM_ID "
+						+ ") F "
+						+ "LEFT JOIN  AC_AD_FORM004A_SUMMARIZED_MST S "
+						+ "ON F.ACCOUNTING_TITLE = S.ACCOUNTING_TITLE AND F.RELATION = S.RELATION AND S.CORP_ID = ?");
+
+		System.out
+				.println("SELECT "
+						+ "F.SUMMARIZE_TOTAL, "
+						+ "F.COUNT_TO_SUMMARIZE,"
+						+ "F.ACCOUNTING_TITLE,F.TERM_ID, "
+						+ "S.CUSTOMER_NAME, "
+						+ "S.CUSTOMER_ADDRESS, "
+						+ "S.MEMO "
+						+ "FROM ("
+						+ "SELECT "
+						+ "SUM(ENDING_BALANCE) SUMMARIZE_TOTAL, "
+						+ "COUNT(*) COUNT_TO_SUMMARIZE,"
+						+ "ACCOUNTING_TITLE, "
+						+ "TERM_ID "
+						+ "FROM "
+						+ "AC_AD_FORM009A "
+						+ "WHERE "
+						+ "CORP_ID = ? "
+						+ "AND ENDING_BALANCE < ? "
+						+ "AND IS_SUMMARIZED_RECORD = 0 "
+						+ "AND TERM_ID IN (?,?) "
+						+ "GROUP BY ACCOUNTING_TITLE, TERM_ID "
+						+ "ORDER BY ACCOUNTING_TITLE, TERM_ID "
+						+ ") F "
+						+ "LEFT JOIN  AC_AD_FORM009A_SUMMARIZED_MST S "
+						+ "ON F.ACCOUNTING_TITLE = S.ACCOUNTING_TITLE AND S.CORP_ID = ?"
+
+						+ "");
 	}
 }
