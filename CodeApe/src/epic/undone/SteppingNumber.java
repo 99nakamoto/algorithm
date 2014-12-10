@@ -1,4 +1,4 @@
-package epic.difficult;
+package epic.undone;
 
 public class SteppingNumber {
 
