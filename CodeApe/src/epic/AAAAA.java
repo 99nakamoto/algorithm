@@ -1,9 +1,9 @@
 package epic;
 
-public class Template {
+public class AAAAA {
 
     public static void main(String[] args) {
-        Template ins = new Template();
+        AAAAA ins = new AAAAA();
         System.out.println();
     }
 
