@@ -5,18 +5,18 @@ public class SeedsNumber {
 	public static void main(String[] args) {
 		SeedsNumber ins = new SeedsNumber();
 
-		ins.doIt(24);
-		ins.doIt(39);
-		ins.doIt(1716);
+		ins.otherPplSolutoin(24);
+		ins.otherPplSolutoin(39);
+		ins.otherPplSolutoin(1716);
 		System.out.println();
 
-		ins.printAllSeeds(24);
-		ins.printAllSeeds(39);
-		ins.printAllSeeds(1716);
+		ins.mySolution(24);
+		ins.mySolution(39);
+		ins.mySolution(1716);
 
 	}
 
-	private void printAllSeeds(int num) {
+	private void mySolution(int num) {
 		if (num == 1) {
 			System.out.println("1");
 			return;
@@ -36,7 +36,7 @@ public class SeedsNumber {
 		}
 	}
 
-	private void doIt(int num) {
+	private void otherPplSolutoin(int num) {
 
 		int product = 1;
 		int seed = 1;
