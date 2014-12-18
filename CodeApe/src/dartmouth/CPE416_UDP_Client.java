@@ -1,4 +1,4 @@
-//package CPE416_UDP_Client;
+package dartmouth;
 
 import java.net.*;
 import java.io.*;
