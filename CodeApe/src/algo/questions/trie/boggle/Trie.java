@@ -1,4 +1,4 @@
-package algo.questions.boggle;
+package algo.questions.trie.boggle;
 
 public class Trie {
 	private TrieNode root;

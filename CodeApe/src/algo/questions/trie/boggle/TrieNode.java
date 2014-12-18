@@ -1,4 +1,4 @@
-package algo.questions.boggle;
+package algo.questions.trie.boggle;
 
 public class TrieNode {
 	private TrieNode[] children;
