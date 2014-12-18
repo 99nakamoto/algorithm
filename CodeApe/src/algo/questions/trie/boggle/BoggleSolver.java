@@ -1,4 +1,4 @@
-package algo.questions.boggle;
+package algo.questions.trie.boggle;
 
 import java.io.BufferedReader;
 import java.io.File;
