@@ -1,6 +1,6 @@
+package algo.oop;
 
-
-public class PolymorphismSubstitutability {
+public class PolymorphismSubstitutabilityDemo {
 
 	public static void main(String[] args) {
 		Circle c1 = new Cylinder(1, "white", 10);
