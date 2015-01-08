@@ -2,14 +2,14 @@ package algo.questions;
 
 import java.util.HashSet;
 
-public class LongestSubstringTwoCharacters {
+public class LargestWindowTwoChars {
 
 	// Given a string, find the longest substring that contains only two unique
 	// characters. For example, given "abcbbbbcccbdddadacb", the longest
 	// substring that contains 2 unique character is "bcbbbbcccb".
 
 	public static void main(String[] args) {
-		LongestSubstringTwoCharacters ins = new LongestSubstringTwoCharacters();
+		LargestWindowTwoChars ins = new LargestWindowTwoChars();
 		System.out.println(ins.solution("abcbbbbcccbdddadacb"));
 	}
 
