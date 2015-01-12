@@ -1,22 +1,21 @@
 package threading.blockingq.example2;
 
-import java.util.concurrent.BlockingQueue;
-
 public class Consumer implements Runnable {
 
-	protected BlockingQueue queue = null;
+	protected MyBlockingQueue queue = null;
 
-	public Consumer(BlockingQueue queue) {
+	public Consumer(MyBlockingQueue queue) {
 		this.queue = queue;
 	}
 
 	public void run() {
 		try {
-			System.out.println(queue.take());
-			System.out.println(queue.take());
-			System.out.println(queue.take());
+			for (int i = 1; i <= 5; i++) {
+				System.out.println(queue.dequeue());
+			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println("Consumer finished. ");
 	}
 }

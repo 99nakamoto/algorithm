@@ -3,7 +3,7 @@ package threading.blockingq.example1;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-public class ProducerConsumerService {
+public class Main {
 
 	// original post from:
 	// http://www.journaldev.com/1034/java-blockingqueue-example-implementing-producer-consumer-problem
@@ -41,5 +41,4 @@ public class ProducerConsumerService {
 			this.consumerDelay = c;
 		}
 	}
-
 }
