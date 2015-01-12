@@ -1,22 +1,20 @@
 package threading.blockingq.example2;
 
-import java.util.concurrent.BlockingQueue;
-
 public class Producer implements Runnable {
 
-	protected BlockingQueue queue = null;
+	protected MyBlockingQueue queue = null;
 
-	public Producer(BlockingQueue queue) {
+	public Producer(MyBlockingQueue queue) {
 		this.queue = queue;
 	}
 
 	public void run() {
+		System.out.println("Producer starting... ");
 		try {
-			queue.put("1");
-			Thread.sleep(1000);
-			queue.put("2");
-			Thread.sleep(1000);
-			queue.put("3");
+			for (int i = 1; i <= 5; i++) {
+				queue.enqueue("" + i);
+				Thread.sleep(500);
+			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
