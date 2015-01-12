@@ -2,8 +2,6 @@ package threading.blockingq.example1;
 
 import java.util.concurrent.BlockingQueue;
 
-import threading.blockingq.example1.ProducerConsumerService.Setting;
-
 public class Consumer implements Runnable {
 
 	private BlockingQueue<Message> queue;
@@ -25,7 +23,8 @@ public class Consumer implements Runnable {
 			Message msg;
 			// consuming messages until exit message is received
 			while ((msg = queue.take()).getMsg() != "exit") {
-				System.out.println("         " + msg.getMsg() + " Consumed");
+				System.out.println("         " + msg.getMsg() + " Consumed"+ "  ("
+						+ queue.size() + " items)");
 				Thread.sleep(consumeSpeed);
 			}
 		} catch (InterruptedException e) {
