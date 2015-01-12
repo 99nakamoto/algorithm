@@ -2,7 +2,7 @@ package threading.blockingq.example1;
 
 import java.util.concurrent.BlockingQueue;
 
-import threading.blockingq.example1.ProducerConsumerService.Setting;
+import threading.blockingq.example1.Main.Setting;
 
 public class Producer implements Runnable {
 
