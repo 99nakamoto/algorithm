@@ -1,6 +1,6 @@
 package algo.questions;
 
-public class The1000thPrimeNumber {
+public class SieveOfE {
 
 	private static final int INDEX = 10001;
 	private static final int LIMIT = 1000000;

@@ -3,17 +3,17 @@ package threading.blockingq.example2;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MyBlockingQueue { 
+public class MyBlockingQueue {
 
-	private List queue = new LinkedList();
-	private int limit = 10;
+	private List<Object> queue = new LinkedList<Object>();
+	private int size = 10;
 
-	public MyBlockingQueue(int limit) {
-		this.limit = limit;
+	public MyBlockingQueue(int size) {
+		this.size = size;
 	}
 
 	public synchronized void enqueue(Object item) throws InterruptedException {
-		while (this.queue.size() == this.limit) {
+		while (this.queue.size() == this.size) {
 			wait();
 		}
 		if (this.queue.size() == 0) {
@@ -26,11 +26,14 @@ public class MyBlockingQueue {
 		while (this.queue.size() == 0) {
 			wait();
 		}
-		if (this.queue.size() == this.limit) {
+		if (this.queue.size() == this.size) {
 			notifyAll();
 		}
 
 		return this.queue.remove(0);
 	}
 
+	public boolean isEmpty() {
+		return this.queue.isEmpty();
+	}
 }

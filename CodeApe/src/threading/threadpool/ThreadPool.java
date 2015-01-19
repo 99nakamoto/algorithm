@@ -19,6 +19,7 @@ public class ThreadPool {
 		for (int i = 0; i < numThreads; i++) {
 			threads.add(new MyThread(taskQueue));
 		}
+		System.out.println("Thread pool initiated. ");
 		for (MyThread thread : threads) {
 			thread.start();
 		}
@@ -36,11 +37,16 @@ public class ThreadPool {
 		}
 	}
 
+	public boolean noMoreTask() {
+		return this.taskQueue.isEmpty();
+	}
+
 	public synchronized void stop() {
 		this.isStopped = true;
 		for (MyThread thread : threads) {
-			thread.stop();
+//			thread.stop();
+			thread.interrupt();
 		}
+		System.out.println("Thread pool stopped. ");
 	}
-
 }
