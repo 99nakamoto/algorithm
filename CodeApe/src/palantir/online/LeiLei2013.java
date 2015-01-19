@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
  * 
  * @author SUN LEI
  */
-public class LeiLei {
+public class LeiLei2013 {
 
 	/**
 	 * @param args
@@ -24,60 +24,62 @@ public class LeiLei {
 
 	public static void main(String[] args) throws IOException,
 			URISyntaxException {
-		// TODO code application logic here
-		String inputFile = "input01.txt";
-		FileReader jin = new FileReader(new File(LeiLei.class.getResource(
-				inputFile).toURI()));
-		// FileWriter jout = new FileWriter("out.txt");
-		BufferedReader reader = new BufferedReader(jin);
-		// BufferedReader reader = new BufferedReader(new
-		// InputStreamReader(System.in));
 
-		size = Integer.parseInt(reader.readLine());
-		int[][] plot = new int[size][size];
-		int[][] basin = new int[size][size];
-		for (int i = 0; i < size; i++) {
-			String s = reader.readLine();
-			StringTokenizer st = new StringTokenizer(s, " ");
-			for (int j = 0; j < size; j++) {
-				plot[i][j] = Integer.parseInt(st.nextToken());
-			}
-		}
-		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
-				basin[i][j] = -1;
-			}
-		}
-		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
-				if (isSink(i, j, plot)) {
-					basin[i][j] = cur_level + 1;
-					cur_level++;
+		String inputFile;
+
+		// this code got bug - cannot execute properly for 2nd test
+		for (int testCaseNumber = 0; testCaseNumber < 5; testCaseNumber++) {
+			inputFile = "input" + testCaseNumber + ".txt";
+			FileReader jin = new FileReader(new File(LeiLei2013.class
+					.getResource(inputFile).toURI()));
+			BufferedReader reader = new BufferedReader(jin);
+
+			size = Integer.parseInt(reader.readLine());
+			int[][] plot = new int[size][size];
+			int[][] basin = new int[size][size];
+			for (int i = 0; i < size; i++) {
+				String s = reader.readLine();
+				StringTokenizer st = new StringTokenizer(s, " ");
+				for (int j = 0; j < size; j++) {
+					plot[i][j] = Integer.parseInt(st.nextToken());
 				}
 			}
-		}
-		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
-				if (basin[i][j] == -1) {
-					label(i, j, plot, basin);
-				}
-			}
-		}
-		// System.out.println(cur_level);
-		for (int level = 0; level < cur_level + 1; level++) {
-			int count = 0;
 			for (int i = 0; i < size; i++) {
 				for (int j = 0; j < size; j++) {
-					if (level == basin[i][j])
-						count++;
+					basin[i][j] = -1;
 				}
 			}
-			if (level != cur_level)
-				System.out.print(count + " ");
-			else
-				System.out.print(count);
+			for (int i = 0; i < size; i++) {
+				for (int j = 0; j < size; j++) {
+					if (isSink(i, j, plot)) {
+						basin[i][j] = cur_level + 1;
+						cur_level++;
+					}
+				}
+			}
+			for (int i = 0; i < size; i++) {
+				for (int j = 0; j < size; j++) {
+					if (basin[i][j] == -1) {
+						label(i, j, plot, basin);
+					}
+				}
+			}
+			// System.out.println(cur_level);
+			for (int level = 0; level < cur_level + 1; level++) {
+				int count = 0;
+				for (int i = 0; i < size; i++) {
+					for (int j = 0; j < size; j++) {
+						if (level == basin[i][j])
+							count++;
+					}
+				}
+				if (level != cur_level)
+					System.out.print(count + " ");
+				else
+					System.out.print(count);
+			}
+			System.out.println();
 		}
-		// jout.close();
 	}
 
 	public static boolean isSink(int i, int j, int[][] plot) {
