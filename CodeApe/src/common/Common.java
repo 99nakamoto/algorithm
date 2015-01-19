@@ -47,4 +47,14 @@ public class Common {
 		}
 		return true;
 	}
+
+	public static int factorial(int num) {
+		if (num == 1) {
+			return 1;
+		} else if (num > 1) {
+			return num * factorial(num - 1);
+		} else {
+			return -1; // Error
+		}
+	}
 }
