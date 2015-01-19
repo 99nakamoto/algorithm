@@ -2,77 +2,88 @@ package palantir.online;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.net.URISyntaxException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class MeSolution {
+public class MeSolution2013 {
 
-	public static void main(String args[]) throws FileNotFoundException,
-			URISyntaxException {
+	public static void main(String args[]) {
 
-		String inputFile = "input01.txt";
-		BufferedReader in = new BufferedReader(new FileReader(new File(
-				MeSolution.class.getResource(inputFile).toURI())));
+		String inputFile;
+		int testCaseNumber = 1;
 
-		Scanner sc = new Scanner(in);
-		int length = sc.nextInt();
-		int[][] elevation = new int[length][length];
-		for (int i = 0; i < length; i++) {
-			for (int j = 0; j < length; j++) {
-				elevation[i][j] = sc.nextInt();
+		while (true) {
+			inputFile = "input" + testCaseNumber + ".txt";
+			BufferedReader in;
+			try {
+				URI uri = MeSolution2013.class.getResource(inputFile).toURI();
+				in = new BufferedReader(new FileReader(new File(uri)));
+			} catch (Exception e) {
+				// there is not more test cases
+				break;
 			}
-		}
 
-		// int length = 5;
-		// int[][] elevation = {{1,0,2,5,8},
-		// {2,3,4,7,9},
-		// {3,5,7,9,9},
-		// {1,2,5,5,3},
-		// {3,3,5,1,0}};
-
-		// int length = 4;
-		// int[][] elevation = {{0,3,2,3},
-		// {3,2,1,4},
-		// {3,4,3,3},
-		// {5,5,2,0}};
-
-		// int length = 3;
-		// int[][] elevation = {{1,5,2},
-		// {2,4,7},
-		// {3,6,9}};
-
-		// int length = 1;
-		// int[][] elevation = {{10}};
-
-		List<Pair> sinkList = new ArrayList<Pair>();
-
-		// first find out all sink nodes
-		for (int i = 0; i < length; i++) {
-			for (int j = 0; j < length; j++) {
-				if (elevation[i][j] < lowestNeighbor(i, j, elevation)) {
-					// (i,j) is a sink point
-					sinkList.add(new Pair(i, j));
+			Scanner sc = new Scanner(in);
+			int length = sc.nextInt();
+			int[][] elevation = new int[length][length];
+			for (int i = 0; i < length; i++) {
+				for (int j = 0; j < length; j++) {
+					elevation[i][j] = sc.nextInt();
 				}
 			}
-		}
 
-		// then for each sink node, return the count
-		int[] basinSize = new int[sinkList.size()];
-		for (int i = 0; i < sinkList.size(); i++) {
-			basinSize[i] = count(sinkList.get(i).X, sinkList.get(i).Y,
-					elevation);
-		}
-		Arrays.sort(basinSize);
+			// int length = 5;
+			// int[][] elevation = {{1,0,2,5,8},
+			// {2,3,4,7,9},
+			// {3,5,7,9,9},
+			// {1,2,5,5,3},
+			// {3,3,5,1,0}};
 
-		for (int i = sinkList.size() - 1; i >= 0; i--) {
-			System.out.print(basinSize[i]);
-			if (i != 0)
-				System.out.print(" ");
+			// int length = 4;
+			// int[][] elevation = {{0,3,2,3},
+			// {3,2,1,4},
+			// {3,4,3,3},
+			// {5,5,2,0}};
+
+			// int length = 3;
+			// int[][] elevation = {{1,5,2},
+			// {2,4,7},
+			// {3,6,9}};
+
+			// int length = 1;
+			// int[][] elevation = {{10}};
+
+			List<Pair> sinkList = new ArrayList<Pair>();
+
+			// first find out all sink nodes
+			for (int i = 0; i < length; i++) {
+				for (int j = 0; j < length; j++) {
+					if (elevation[i][j] < lowestNeighbor(i, j, elevation)) {
+						// (i,j) is a sink point
+						sinkList.add(new Pair(i, j));
+					}
+				}
+			}
+
+			// then for each sink node, return the count
+			int[] basinSize = new int[sinkList.size()];
+			for (int i = 0; i < sinkList.size(); i++) {
+				basinSize[i] = count(sinkList.get(i).X, sinkList.get(i).Y,
+						elevation);
+			}
+			Arrays.sort(basinSize);
+
+			for (int i = sinkList.size() - 1; i >= 0; i--) {
+				System.out.print(basinSize[i]);
+				if (i != 0)
+					System.out.print(" ");
+			}
+			System.out.println();
+			testCaseNumber++;
 		}
 	}
 

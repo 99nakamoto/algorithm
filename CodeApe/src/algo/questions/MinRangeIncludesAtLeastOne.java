@@ -3,6 +3,8 @@ package algo.questions;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+import common.Pair;
+
 public class MinRangeIncludesAtLeastOne {
 
 	private static final int SIZE = 3;
@@ -26,13 +28,13 @@ public class MinRangeIncludesAtLeastOne {
 	}
 
 	public void printMinRange(int[][] input) {
-		Comparator<Pointer> compr = new HeapComparator(input);
+		Comparator<Pair> compr = new HeapComparator(input);
 		// Note that we pass in 'input' arrays to the comparator
-		PriorityQueue<Pointer> heap = new PriorityQueue<Pointer>(SIZE, compr);
+		PriorityQueue<Pair> heap = new PriorityQueue<Pair>(SIZE, compr);
 
 		int maxVal = Integer.MIN_VALUE;
 		for (int i = 0; i < SIZE; i++) {
-			heap.add(new Pointer(i, 0));
+			heap.add(new Pair(i, 0));
 			// insert the head of each array into the heap
 			maxVal = Math.max(maxVal, input[i][0]);
 			// keep additional value to keep track of the max value in heap
@@ -41,18 +43,18 @@ public class MinRangeIncludesAtLeastOne {
 		int left = 0;
 		int right = Integer.MAX_VALUE;
 		while (heap.size() == SIZE) {
-			Pointer p = heap.remove();
+			Pair p = heap.remove();
 			// first, update the range
-			if (maxVal - input[p.index][p.position] < right - left) {
+			if (maxVal - input[p.x][p.y] < right - left) {
 				right = maxVal;
-				left = input[p.index][p.position];
+				left = input[p.x][p.y];
 			}
 			// then, push the next element after 'p' to the heap
 			// meanwhile, update 'maxVal'
-			if (p.position + 1 < input[p.index].length) {
-				Pointer nextP = new Pointer(p.index, p.position + 1);
+			if (p.y + 1 < input[p.x].length) {
+				Pair nextP = new Pair(p.x, p.y + 1);
 				heap.add(nextP);
-				maxVal = Math.max(maxVal, input[nextP.index][nextP.position]);
+				maxVal = Math.max(maxVal, input[nextP.x][nextP.y]);
 			}
 			// when 'p' is the last element in the row, terminate loop
 		}
@@ -60,7 +62,7 @@ public class MinRangeIncludesAtLeastOne {
 		System.out.println("Right boundary: " + right);
 	}
 
-	class HeapComparator implements Comparator<Pointer> {
+	class HeapComparator implements Comparator<Pair> {
 
 		int[][] arrays = null;
 
@@ -68,18 +70,9 @@ public class MinRangeIncludesAtLeastOne {
 			arrays = input;
 		}
 
-		public int compare(Pointer p1, Pointer p2) {
-			return arrays[p1.index][p1.position]
-					- arrays[p2.index][p2.position];
+		public int compare(Pair p1, Pair p2) {
+			return arrays[p1.x][p1.y] - arrays[p2.x][p2.y];
 		}
 	}
 
-	class Pointer {
-		int index, position;
-
-		public Pointer(int x, int y) {
-			index = x;
-			position = y;
-		}
-	}
 }
