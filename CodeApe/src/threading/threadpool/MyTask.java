@@ -14,5 +14,4 @@ public class MyTask implements Runnable {
 		// finish the task ...
 		System.out.println("Task finished: " + message);
 	}
-
 }
