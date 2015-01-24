@@ -1,5 +1,7 @@
 package algo.questions.trees;
 
+import java.util.Stack;
+
 import common.TreeNode;
 
 public class BstThreeSumInorder {
@@ -23,5 +25,9 @@ public class BstThreeSumInorder {
 
 	public void findTriplet(TreeNode root, int target) {
 		
+	}
+	
+	class TreeIterator {
+		Stack<TreeNode> stack = new Stack<TreeNode>();
 	}
 }
