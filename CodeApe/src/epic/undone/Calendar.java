@@ -5,7 +5,7 @@ public class Calendar {
 	public static void main(String[] args) {
 		Calendar ins = new Calendar();
 
-		ins.findWeek(10, 12, 2014, 3);
+		ins.findWeek(20, 1, 2015, 2);
 
 		System.out.println();
 	}
@@ -17,7 +17,11 @@ public class Calendar {
 	int NUMBEROFDAYS[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 	boolean isLeapYear(int year) {
-		return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
+		if (year % 400 == 0)
+			return true;
+		if (year % 4 == 0 && year % 100 != 0)
+			return true;
+		return false;
 	}
 
 	int numberOfDaysInMonthAndYear(int month, int year) {
