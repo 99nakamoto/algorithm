@@ -8,7 +8,7 @@ public class Common {
 		if (array == null || array.length == 0) {
 			System.out.println("The array you input is null/empty. ");
 		}
-		System.out.println("Print the array: ");
+		// System.out.print("Print array: ");
 		System.out.print("{");
 		StringBuilder sb = new StringBuilder();
 		for (int i : array) {
@@ -46,5 +46,15 @@ public class Common {
 			}
 		}
 		return true;
+	}
+
+	public static int factorial(int num) {
+		if (num == 1) {
+			return 1;
+		} else if (num > 1) {
+			return num * factorial(num - 1);
+		} else {
+			return -1; // Error
+		}
 	}
 }
