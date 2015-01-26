@@ -3,8 +3,6 @@ package cmu.codility.practice;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +16,7 @@ public class FrogJumpPondJapanese {
 	public void run(String input, String output) throws Exception {
 		BufferedReader in = new BufferedReader(new FileReader(new File(
 				FrogJumpPondJapanese.class.getResource(input).toURI())));
-		PrintWriter out = new PrintWriter(new FileWriter(output));
+		// PrintWriter out = new PrintWriter(new FileWriter(output));
 
 		// start reading input data
 		String line = in.readLine();
@@ -74,11 +72,11 @@ public class FrogJumpPondJapanese {
 		solve("", map, initPos, leafCount);
 
 		// testing
-		out.write("Testing: leaf count " + leafCount);
+		// out.write("Testing: leaf count " + leafCount);
 
 		// destruct reader and writer
 		in.close();
-		out.close();
+		// out.close();
 	}
 
 	private boolean solve(String path, char[][] map, Position curPos,
