@@ -3,10 +3,6 @@ package Question10_4;
 public class MyAnswer {
 
 	public static int negate(int a) {
-		if (a == Integer.MIN_VALUE) {
-			System.out.println("A overflow happened");
-			return 0;
-		}
 		// plus -1, then do XOR with 111111111
 		// eg. 1 -> 0000000 -> 11111111 = -1
 		// eg. -1 -> 11111110 -> 00000001 = 1
@@ -17,9 +13,11 @@ public class MyAnswer {
 		return a + negate(b);
 	}
 
-	public static boolean diffSign(int a, int b) {
+	public static boolean sameSign(int a, int b) {
+		// if first bit is same, then xor = 00000000
+		// if first bit is not same, xor = 10000000
 		int xor = (a ^ b) & Integer.MIN_VALUE;
-		return false;
+		return xor == 0;
 	}
 
 	public static int abs(int a) {
@@ -43,6 +41,14 @@ public class MyAnswer {
 			int a = i - 10;
 			int ans = negate(a);
 			System.out.print(a + " negate = " + ans + ";  ");
+		}
+		System.out.println();
+
+		for (int i = 0; i < 20; i++) {
+			int a = randomInt(50) - 30;
+			int b = randomInt(10);
+			boolean ans = sameSign(a, b);
+			System.out.print(a + " & " + b + " same sign? " + ans + ";  ");
 		}
 		System.out.println();
 
