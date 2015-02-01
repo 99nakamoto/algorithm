@@ -57,4 +57,13 @@ public class Common {
 			return -1; // Error
 		}
 	}
+
+	public static void printTreeInorder(TreeNode root) {
+		if (root == null) {
+			return;
+		}
+		printTreeInorder(root.left);
+		System.out.print(Integer.toString(root.val) + " ");
+		printTreeInorder(root.right);
+	}
 }
