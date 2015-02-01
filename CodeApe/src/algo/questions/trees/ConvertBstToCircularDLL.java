@@ -1,41 +1,36 @@
 package algo.questions.trees;
 
+import common.Common;
 import common.TreeNode;
 
 public class ConvertBstToCircularDLL {
 
-	/*
-	 * Given an ordered binary tree, recursively change it into a circular
-	 * doubly linked list which is returned.
-	 */
-	public static TreeNode treeToList(TreeNode root) {
+	public static TreeNode convertBstToDLL(TreeNode root) {
+		// convert bst to circular dll 
 		if (root == null)
 			return (null);
 
 		// Recursively do the subtrees (leap of faith!)
-		TreeNode aList = treeToList(root.left);
-		TreeNode bList = treeToList(root.right);
+		TreeNode lln = convertBstToDLL(root.left);
+		TreeNode rrn = convertBstToDLL(root.right);
 
 		// Make root a circular DLL
 		root.left = root;
 		root.right = root;
 
 		// At this point we have three lists, merge them
-		aList = append(aList, root);
-		aList = append(aList, bList);
+		lln = appendDLL(lln, root);
+		lln = appendDLL(lln, rrn);
 
-		return (aList);
+		return lln;
 	}
 
-	/*
-	 * given two circular doubly linked lists, append them and return the new
-	 * list.
-	 */
-	public static TreeNode append(TreeNode a, TreeNode b) {
+	public static TreeNode appendDLL(TreeNode a, TreeNode b) {
+		// append 2 circular DLL
 		if (a == null)
-			return (b);
+			return b;
 		if (b == null)
-			return (a);
+			return a;
 
 		TreeNode aLast = a.left;
 		TreeNode bLast = b.left;
@@ -45,7 +40,7 @@ public class ConvertBstToCircularDLL {
 		bLast.right = a;
 		a.left = bLast;
 
-		return (a);
+		return a;
 	}
 
 	/*
@@ -70,33 +65,25 @@ public class ConvertBstToCircularDLL {
 		}
 	}
 
-	public static void printTree(TreeNode root) {
-		if (root == null)
-			return;
-		printTree(root.left);
-		System.out.print(Integer.toString(root.val) + " ");
-		printTree(root.right);
-	}
-
-	public static void printListFromLeft(TreeNode head) {
-		TreeNode current = head;
+	public static void printListFromLeft(TreeNode node) {
+		TreeNode current = node;
 
 		while (current != null) {
 			System.out.print(Integer.toString(current.val) + " ");
 			current = current.right;
-			if (current == head)
+			if (current == node)
 				break;
 		}
 		System.out.println();
 	}
 
-	public static void printListFromRight(TreeNode tail) {
-		TreeNode current = tail;
+	public static void printListFromRight(TreeNode node) {
+		TreeNode current = node;
 
 		while (current != null) {
 			System.out.print(Integer.toString(current.val) + " ");
 			current = current.left;
-			if (current == tail)
+			if (current == node)
 				break;
 		}
 		System.out.println();
@@ -109,13 +96,17 @@ public class ConvertBstToCircularDLL {
 		treeInsert(root, 3);
 		treeInsert(root, 5);
 
-		System.out.println("tree:");
-		printTree(root); // 1 2 3 4 5
+		System.out.println("Input tree:");
+		System.out.print("inorder - ");
+		Common.printTreeInorder(root); // 1 2 3 4 5
+		System.out.println();
 		System.out.println();
 
-		System.out.println("list:");
-		TreeNode head = treeToList(root);
+		System.out.println("Output list:");
+		TreeNode head = convertBstToDLL(root);
+		System.out.print("left to right - ");
 		printListFromLeft(head);
+		System.out.print("right to left - ");
 		printListFromRight(head.left);
 	}
 }
