@@ -1,4 +1,4 @@
-package google.mapreduce.example;
+package mapreduce.example;
 
 /**
  *
