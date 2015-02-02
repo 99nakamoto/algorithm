@@ -1,4 +1,4 @@
-package google.mapreduce.simple;
+package mapreduce.simple;
 
 import java.util.ArrayList;
 import java.util.List;

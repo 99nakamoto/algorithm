@@ -1,7 +1,7 @@
-public class Solution {
+public class Template {
 
 	public static void main(String[] args) {
-		Solution ins = new Solution();
+		Template ins = new Template();
 		long startTime = System.currentTimeMillis();
 
 		System.out.println("Code Ape Run... ");
