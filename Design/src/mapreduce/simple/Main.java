@@ -1,4 +1,4 @@
-package google.mapreduce.simple;
+package mapreduce.simple;
 
 public class Main {
 
