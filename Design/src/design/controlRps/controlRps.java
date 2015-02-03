@@ -3,7 +3,7 @@ package design.controlRps;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class SetRps {
+public class controlRps {
 
 	// limit the request per second of a large incoming stream of requests
 
@@ -48,7 +48,7 @@ public class SetRps {
 
 	private static void runFor5seconds(int RpsInput, int RpsLimit)
 			throws InterruptedException {
-		SetRps ins = new SetRps();
+		controlRps ins = new controlRps();
 		ins.setRPS(RpsLimit);
 		System.out.println("start test with " + RpsInput + "/s input and "
 				+ RpsLimit + "/s limit");
