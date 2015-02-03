@@ -23,10 +23,10 @@ public class MyThread extends Thread {
 		}
 	}
 
-	// public synchronized void stop() {
-	// isStopped = true;
-	// this.interrupt(); // break pool thread out of dequeue() call.
-	// }
+	public synchronized void stopMyThread() {
+		isStopped = true;
+		this.interrupt(); // break pool thread out of dequeue() call.
+	}
 
 	public synchronized boolean isStopped() {
 		return isStopped;
