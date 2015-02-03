@@ -66,7 +66,7 @@ public class SetRps {
 		System.out.println("done");
 		System.out.print("Total time = ");
 		System.out.print((System.currentTimeMillis() - startTime) / 1000.0);
-		System.out.println(" seconds。");
+		System.out.println(" seconds. ");
 		System.out.println("done");
 	}
 }
