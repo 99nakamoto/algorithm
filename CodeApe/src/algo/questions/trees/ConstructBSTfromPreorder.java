@@ -1,5 +1,6 @@
 package algo.questions.trees;
 
+import common.Common;
 import common.TreeNode;
 
 public class ConstructBSTfromPreorder {
@@ -9,7 +10,7 @@ public class ConstructBSTfromPreorder {
 	public static void main(String[] args) {
 		ConstructBSTfromPreorder ins = new ConstructBSTfromPreorder();
 		TreeNode root = ins.solution(new int[] { 4, 2, 1, 3, 6, 5, 7 });
-		root.printLevelOrder();
+		Common.printLevelOrder(root);
 		System.out.println();
 	}
 

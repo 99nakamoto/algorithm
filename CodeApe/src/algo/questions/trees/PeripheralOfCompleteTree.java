@@ -1,5 +1,6 @@
 package algo.questions.trees;
 
+import common.Common;
 import common.TreeNode;
 
 public class PeripheralOfCompleteTree {
@@ -7,12 +8,12 @@ public class PeripheralOfCompleteTree {
 	public static void main(String[] args) {
 		PeripheralOfCompleteTree ins = new PeripheralOfCompleteTree();
 
-		TreeNode completeTree = TreeNode.constructBstFromPreorder(new int[] {
-				4, 2, 1, 3, 6, 5, 7 });
+		TreeNode completeTree = Common.constructBstFromPreorder(new int[] { 4,
+				2, 1, 3, 6, 5, 7 });
 		ins.peripheral(completeTree);
 
-		TreeNode completeTree2 = TreeNode.constructBstFromPreorder(new int[] {
-				8, 4, 2, 1, 3, 6, 5, 7, 12, 10, 9, 11, 14, 13, 15 });
+		TreeNode completeTree2 = Common.constructBstFromPreorder(new int[] { 8,
+				4, 2, 1, 3, 6, 5, 7, 12, 10, 9, 11, 14, 13, 15 });
 		ins.peripheral(completeTree2);
 	}
 
