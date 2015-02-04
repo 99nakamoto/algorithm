@@ -1,5 +1,6 @@
 package algo.questions.trees;
 
+import common.Common;
 import common.TreeNode;
 
 public class CountLevelInPerfectBT {
@@ -23,7 +24,7 @@ public class CountLevelInPerfectBT {
 
 		// build a BST tree with 7 elements (3 layers)
 		int[] bstInorder = new int[] { 0, 1, 2, 3, 4, 5, 6 };
-		TreeNode root = TreeNode.constructBstFromPreorder(bstInorder);
+		TreeNode root = Common.constructBstFromPreorder(bstInorder);
 
 		System.out.println("Test data:");
 		System.out.println("    0");
