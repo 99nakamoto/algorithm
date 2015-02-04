@@ -6,7 +6,7 @@ import common.TreeNode;
 public class ConvertBstToCircularDLL {
 
 	public static TreeNode convertBstToDLL(TreeNode root) {
-		// convert bst to circular dll 
+		// convert bst to circular dll
 		if (root == null)
 			return (null);
 
