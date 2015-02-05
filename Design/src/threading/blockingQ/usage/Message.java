@@ -1,4 +1,4 @@
-package threading.blockingq.example1;
+package threading.blockingQ.usage;
 
 public class Message {
     private String msg;

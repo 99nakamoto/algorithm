@@ -1,6 +1,6 @@
 package threading.threadpool;
 
-import threading.blockingq.example2.MyBlockingQueue;
+import threading.blockingQ.implement.MyBlockingQueue;
 
 public class MyThread extends Thread {
 
