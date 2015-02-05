@@ -1,4 +1,4 @@
-package threading.blockingq.example2;
+package threading.blockingQ.implement;
 
 public class Consumer implements Runnable {
 

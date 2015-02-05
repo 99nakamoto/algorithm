@@ -1,4 +1,4 @@
-package threading.blockingq.example2;
+package threading.blockingQ.implement;
 
 import java.util.LinkedList;
 import java.util.List;
