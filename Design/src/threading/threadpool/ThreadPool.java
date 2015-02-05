@@ -3,7 +3,7 @@ package threading.threadpool;
 import java.util.ArrayList;
 import java.util.List;
 
-import threading.blockingq.example2.MyBlockingQueue;
+import threading.blockingQ.implement.MyBlockingQueue;
 
 public class ThreadPool {
 

@@ -1,4 +1,4 @@
-package threading.blockingq.example1;
+package threading.blockingQ.usage;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

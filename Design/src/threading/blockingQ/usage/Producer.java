@@ -1,8 +1,6 @@
-package threading.blockingq.example1;
+package threading.blockingQ.usage;
 
 import java.util.concurrent.BlockingQueue;
-
-import threading.blockingq.example1.Main.Setting;
 
 public class Producer implements Runnable {
 
