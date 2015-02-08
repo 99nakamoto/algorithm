@@ -1,3 +1,4 @@
+package algo.questions;
 import java.util.LinkedList;
 import java.util.Queue;
 
