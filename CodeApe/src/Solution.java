@@ -1,34 +1,29 @@
-import java.util.HashSet;
+import common.Common;
 
 public class Solution {
 
 	public static void main(String[] args) {
 		Solution ins = new Solution();
-		long startTime = System.currentTimeMillis();
+		int[] input = new int[] { 1, 0, 2, 0, 3, 0, 4 };
+		Common.printArray(input);
 
-		System.out.println("Code Ape Run... ");
-		ins.add(0);
-		ins.add(0);
-		System.out.println(ins.find(0));
-
-		System.out.print("Total time = ");
-		System.out.print((System.currentTimeMillis() - startTime) / 1000.0);
+		ins.method1(input);
+		Common.printArray(input);
 	}
 
-	HashSet<Integer> set = new HashSet<Integer>();
-
-	public void add(int number) {
-		for (int i : set) {
-			set.add(i + number);
+	public void method1(int[] input) {
+		int p1 = 0;
+		int p2 = 0;
+		while (p2 < input.length) {
+			if (input[p2] == 0) {
+				p2++;
+			} else {
+				input[p1++] = input[p2++];
+			}
 		}
-	}
-
-	public boolean find(int value) {
-		return set.contains(value);
-	}
-
-	public void solve(int A) {
-		
+		while (p1 < input.length) {
+			input[p1++] = 0;
+		}
 	}
 
 }
