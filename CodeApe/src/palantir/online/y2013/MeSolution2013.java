@@ -1,4 +1,4 @@
-package palantir.online;
+package palantir.online.y2013;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,7 +23,8 @@ public class MeSolution2013 {
 				URI uri = MeSolution2013.class.getResource(inputFile).toURI();
 				in = new BufferedReader(new FileReader(new File(uri)));
 			} catch (Exception e) {
-				// there is not more test cases
+				// There is not more test cases
+				// Exit.
 				break;
 			}
 
