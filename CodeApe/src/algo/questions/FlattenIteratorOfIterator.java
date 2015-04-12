@@ -39,8 +39,12 @@ public class FlattenIteratorOfIterator {
 				return (int) list.get(p);
 			} else {
 				IteratorIterator it = new IteratorIterator((List) list.get(p));
-				 if (it.hasNext())
+				 if (it.hasNext()) {
+					 // TODO
+				 }
 			}
+
+			return -999;
 		}
 	}
 }
