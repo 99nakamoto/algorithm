@@ -8,7 +8,7 @@ public class FlattenIteratorOfIterator {
 		FlattenIteratorOfIterator ins = new FlattenIteratorOfIterator();
 		long startTime = System.currentTimeMillis();
 
-		System.out.println("Code Ape Run... ");
+		System.out.println("Start Run... ");
 
 		System.out.print("Total time = ");
 		System.out.print((System.currentTimeMillis() - startTime) / 1000.0);

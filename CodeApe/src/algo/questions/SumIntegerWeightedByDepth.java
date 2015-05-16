@@ -79,7 +79,7 @@ public class SumIntegerWeightedByDepth {
 		SumIntegerWeightedByDepth ins = new SumIntegerWeightedByDepth();
 		long startTime = System.currentTimeMillis();
 
-		System.out.println("Code Ape Run... ");
+		System.out.println("Start Run... ");
 
 		// build this: {1, {4, {6}}}
 		NestedInteger level1 = new NestedIntegerImpl(

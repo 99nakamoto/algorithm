@@ -15,7 +15,7 @@ public class MineSweeperAlgorithm {
         MineSweeperAlgorithm ins = new MineSweeperAlgorithm();
         long startTime = System.currentTimeMillis();
 
-        System.out.println("Code Ape Run... ");
+        System.out.println("Start Run... ");
 
         int[][] matrix;
         // make a test case

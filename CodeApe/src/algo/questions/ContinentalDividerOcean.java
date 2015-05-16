@@ -10,7 +10,7 @@ public class ContinentalDividerOcean {
 		ContinentalDividerOcean ins = new ContinentalDividerOcean();
 		long startTime = System.currentTimeMillis();
 
-		System.out.println("Code Ape Run... ");
+		System.out.println("Start Run... ");
 		int[][] map = new int[][] { { 0, 0, 0, 1, 2, 3, 0 },
 				{ 0, 1, 2, 2, 4, 3, 2 }, { 2, 1, 1, 3, 3, 2, 0 },
 				{ 0, 3, 3, 3, 2, 3, 3 } };

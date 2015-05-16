@@ -8,7 +8,7 @@ public class CombinationOfFactors {
 		CombinationOfFactors ins = new CombinationOfFactors();
 		long startTime = System.currentTimeMillis();
 
-		System.out.println("Code Ape Run... ");
+		System.out.println("Start Run... ");
 
 		List<List<Integer>> ans = ins.factorCombinations(24);
 		for (List<Integer> list : ans) {

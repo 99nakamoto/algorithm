@@ -11,7 +11,7 @@ public class WoodenSticks {
         WoodenSticks ins = new WoodenSticks();
         long startTime = System.currentTimeMillis();
 
-        System.out.println("Code Ape Run... ");
+        System.out.println("Start Run... ");
         Pair[] points;
 
         points = new Pair[5];

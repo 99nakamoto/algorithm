@@ -7,7 +7,7 @@ public class IsomorphicStrings {
 		IsomorphicStrings ins = new IsomorphicStrings();
 		long startTime = System.currentTimeMillis();
 
-		System.out.println("Code Ape Run... ");
+		System.out.println("Start Run... ");
 		System.out.println(ins.isomorphic("abc", "acb") + " should be true");
 		System.out.println(ins.isomorphic("foo", "app") + " should be true");
 		System.out.println(ins.isomorphic("turtle", "tletur")

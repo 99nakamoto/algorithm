@@ -11,7 +11,7 @@ public class DuplicateWithinKdistance {
         DuplicateWithinKdistance ins = new DuplicateWithinKdistance();
         long startTime = System.currentTimeMillis();
 
-        System.out.println("Code Ape Run... ");
+        System.out.println("Start Run... ");
 
         System.out.println();
         System.out.println(ins.dupWithinK(3, new int[]{1, 2, 3, 4, 5, 6, 7}) + " should be false");

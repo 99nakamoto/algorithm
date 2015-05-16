@@ -12,7 +12,7 @@ public class NumSubtreeEvenNodes {
 		NumSubtreeEvenNodes ins = new NumSubtreeEvenNodes();
 		long startTime = System.currentTimeMillis();
 
-		System.out.println("Code Ape Run... ");
+		System.out.println("Start Run... ");
 
 		System.out.println("Test start");
 

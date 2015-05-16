@@ -6,6 +6,8 @@ import java.util.List;
 
 // code is from http://www.careercup.com/question?id=12411025
 
+// Determine whether a number is colorful or not. 263 is a colorful number because (2,6,3,2x6,6x3,2x3x6) are all different whereas 236 is not because (2,3,6,2x3,3x6,2x3x6) have 6 twice. So take all consecutive subsets of digits, take their product and ensure all the products are different
+
 public class ColorfulNumber {
 
 	public static void main(String[] args) {

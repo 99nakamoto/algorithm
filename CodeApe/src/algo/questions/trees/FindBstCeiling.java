@@ -8,7 +8,7 @@ public class FindBstCeiling {
 		FindBstCeiling ins = new FindBstCeiling();
 		long startTime = System.currentTimeMillis();
 
-		System.out.println("Code Ape Run... ");
+		System.out.println("Start Run... ");
 		TreeNode tree = Common.constructBstFromPreorder(new int[] { 40, 20, 10,
 				30, 60, 50, 70 });
 		for (int i = 0; i < 100; i++) {
