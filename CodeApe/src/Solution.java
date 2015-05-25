@@ -9,35 +9,22 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution s = new Solution();
-        System.out.println(s.largestNumber(new int[]{
-                12, 123, 45
+        System.out.println(s.maxProfix(new int[]{
+                3, 5, 1, 4, 9
         }));
     }
 
-    public String largestNumber(int[] num) {
-        if (num == null || num.length == 0) {
-            return "0";
+    int maxProfix(int[] prices) {
+        if (prices == null || prices.length == 0) {
+            return 0;
         }
-        String[] strs = new String[num.length];
-        for (int i = 0; i < num.length; i++) {
-            strs[i] = String.valueOf(num[i]);
+        int maxReturn = 0;
+        int minPrice = prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            // for each price, calculate the max possible return
+            maxReturn = Math.max(maxReturn, prices[i] - minPrice);
+            minPrice = Math.min(minPrice, prices[i]);
         }
-        Arrays.sort(strs, new LargerComparator());
-
-        String res = "";
-        for (String str : strs) {
-            res = res + str;
-        }
-        return res;
-    }
-
-
-    class LargerComparator implements Comparator<String> {
-
-        public int compare(String a, String b) {
-            String first = a + b;
-            String second = b + a;
-            return second.compareTo(first);
-        }
+        return maxReturn;
     }
 }
