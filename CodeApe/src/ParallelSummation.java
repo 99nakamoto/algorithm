@@ -19,7 +19,7 @@ public class ParallelSummation {
 			floats[i] = (float) ((int) (1000 * Math.random()) / 10.0);
 		}
 
-		List<Future<Double>> tasks = new ArrayList<>();
+		List<Future<Double>> tasks = new ArrayList<Future<Double>>();
 		int blockSize = (floats.length + cpus - 1) / cpus;
 
 		for (int i = 0; i < floats.length; i++) {
