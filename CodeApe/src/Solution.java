@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Solution {
 
@@ -7,11 +9,14 @@ public class Solution {
         Solution ins = new Solution();
         char[][] b = new char[][]{
             new char[]{
-                    'a'
+                    'a', 'b'
+            },
+            new char[]{
+                    'c', 'd'
             }
         };
         String[] s = new String[]{
-                "a"
+                "cdba"
         };
         List<String> result = ins.findWords(b, s);
         for (String str: result)
@@ -33,11 +38,19 @@ public class Solution {
         // second, do DFS on the board, and return when (startsWith == false)
         int m = board.length;
         int n = board[0].length;
-        dfs(result, board, new boolean[m][n], new Trie(), "", m, n, 0, 0);
+        Set<String> set = new HashSet<String>();
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                dfs(set, board, new boolean[m][n], trie, "", m, n, i, j);
+            }
+        }
+        for (String str: set) {
+            result.add(str);
+        }
         return result;
     }
 
-    public void dfs(List<String> result, char[][] board, boolean[][] visited, Trie trie,
+    public void dfs(Set<String> set, char[][] board, boolean[][] visited, Trie trie,
                     String path, int m, int n, int x, int y) {
         if (x < 0 || x >= m || y < 0 || y >= n) {
             // invalid position
@@ -47,27 +60,23 @@ public class Solution {
             return;
         }
 
-        // process the result
-        visited[x][y] = true;
+        // add the current char into path
         String newPath = path + board[x][y];
         if (!trie.startsWith(newPath)) {
-            // current string does not exist in the trie
             return;
         } else if (trie.search(newPath)) {
-            if (!result.contains(newPath)) {
-                result.add(newPath);
-            }
+            // one result is found
+            set.add(newPath);
         }
 
         // for 4 different neighbor locations, do DFS
+        visited[x][y] = true;
         for (int i = -1; i <= 1; i += 2) {
             // x-axis
-            dfs(result, board, visited, trie, newPath, m, n, x + i, y);
+            dfs(set, board, visited, trie, newPath, m, n, x + i, y);
             // y-axis
-            dfs(result, board, visited, trie, newPath, m, n, x, y + i);
+            dfs(set, board, visited, trie, newPath, m, n, x, y + i);
         }
-
-        // reset visited flag
         visited[x][y] = false;
     }
 }
@@ -144,5 +153,3 @@ class Trie {
         return tail != null;
     }
 }
-
-// test
