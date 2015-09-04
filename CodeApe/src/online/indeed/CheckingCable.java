@@ -1,4 +1,4 @@
-package indeed.online;
+package online.indeed;
 import java.util.*;
 
 public class CheckingCable {

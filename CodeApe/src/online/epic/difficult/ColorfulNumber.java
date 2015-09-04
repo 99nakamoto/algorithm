@@ -1,4 +1,4 @@
-package epic.difficult;
+package online.epic.difficult;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package epic.difficult;
+package online.epic.difficult;
 
 public class SteppingNumber {
 

@@ -1,4 +1,4 @@
-package palantir.online.y2013;
+package online.palantir.y2013;
 
 import java.io.BufferedReader;
 import java.io.File;

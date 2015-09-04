@@ -1,4 +1,4 @@
-package epic.easy;
+package online.epic.easy;
 
 import java.util.ArrayList;
 import java.util.List;

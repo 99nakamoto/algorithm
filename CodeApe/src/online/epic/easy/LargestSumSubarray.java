@@ -1,4 +1,4 @@
-package epic.easy;
+package online.epic.easy;
 
 public class LargestSumSubarray {
 
