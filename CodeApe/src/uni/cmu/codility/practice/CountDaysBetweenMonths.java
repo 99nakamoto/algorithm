@@ -1,7 +1,7 @@
-package cmu.codility.practice;
+package uni.cmu.codility.practice;
 public class CountDaysBetweenMonths {
 
-	// ¼ÆËã³öÖ¸¶¨µÄÄ³ÄêµÄÁ½¸öÔÂÖ®¼äµÄÍêÕû£¨ÖÜ1µ½7£©µÄĞÇÆÚÊı.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
 	private final int NUMBEROFDAYS[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30,
 			31, 30, 31 };

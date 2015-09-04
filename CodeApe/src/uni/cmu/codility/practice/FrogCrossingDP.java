@@ -1,4 +1,4 @@
-package cmu.codility.practice;
+package uni.cmu.codility.practice;
 
 public class FrogCrossingDP {
 

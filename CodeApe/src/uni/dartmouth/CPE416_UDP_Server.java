@@ -1,18 +1,13 @@
-package dartmouth;
+package uni.dartmouth;
 //package cpe416_udp_server;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.net.*;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
-import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import java.util.Iterator;
 
 public class CPE416_UDP_Server {
 

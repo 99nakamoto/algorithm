@@ -1,4 +1,4 @@
-package dartmouth;
+package uni.dartmouth;
 
 import java.net.*;
 import java.io.*;

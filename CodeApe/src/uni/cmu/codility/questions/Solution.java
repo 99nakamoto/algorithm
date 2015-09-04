@@ -1,4 +1,4 @@
-package cmu.codility.questions;
+package uni.cmu.codility.questions;
 
 // you can also use imports, for example:
 // import java.util.*;
