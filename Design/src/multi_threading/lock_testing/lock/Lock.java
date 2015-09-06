@@ -1,4 +1,4 @@
-package multi_threading.lock;
+package multi_threading.lock_testing.lock;
 
 /**
  * Created by ran on 6/9/15.
