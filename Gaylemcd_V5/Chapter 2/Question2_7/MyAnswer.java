@@ -6,7 +6,7 @@ import CtCILibrary.LinkedListNode;
 
 public class MyAnswer {
 
-	public static boolean isPalindrome1(LinkedListNode head) {
+	public static boolean isPalindromeStack(LinkedListNode head) {
 		int len = getListLength(head);
 		int half = len / 2;
 		Stack<Integer> stack = new Stack<Integer>();
@@ -28,32 +28,10 @@ public class MyAnswer {
 
 	private static LinkedListNode p;
 
-	public static boolean isPalindrome2(LinkedListNode head) {
+	public static boolean isPalindromeRecursive(LinkedListNode head) {
 		p = head;
 		int len = getListLength(head);
-		return helper2(0, len - 1);
-	}
-
-	public static boolean helper2(int from, int to) {
-		if (from > to) {
-			return true;
-		} else if (from == to) {
-			p = p.next;
-			return true;
-		} else {
-			// first get fromVal, then check middlep part, last, get toVal
-			int fromVal = p.data;
-			p = p.next;
-			if (!helper2(from + 1, to - 1)) {
-				return false;
-			}
-			int toVal = p.data;
-			p = p.next;
-			if (fromVal != toVal) {
-				return false;
-			}
-		}
-		return true;
+		return recursiveHelper(0, len - 1);
 	}
 
 	private static int getListLength(LinkedListNode node) {
@@ -65,6 +43,28 @@ public class MyAnswer {
 		return count;
 	}
 
+	public static boolean recursiveHelper(int from, int to) {
+		if (from > to) {
+			return true;
+		} else if (from == to) {
+			p = p.next;
+			return true;
+		} else {
+			// first get fromVal, then check middle part, last, get toVal
+			int fromVal = p.data;
+			p = p.next;
+			if (!recursiveHelper(from + 1, to - 1)) {
+				return false;
+			}
+			int toVal = p.data;
+			p = p.next;
+			if (fromVal != toVal) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public static void main(String[] args) {
 
 		System.out.println("My answer");
@@ -72,8 +72,7 @@ public class MyAnswer {
 		int length = 10;
 		LinkedListNode[] nodes = new LinkedListNode[length];
 		for (int i = 0; i < length; i++) {
-			nodes[i] = new LinkedListNode(i >= length / 2 ? length - i - 1 : i,
-					null, null);
+			nodes[i] = new LinkedListNode(i >= length / 2 ? length - i - 1 : i, null, null);
 		}
 
 		for (int i = 0; i < length; i++) {
@@ -88,13 +87,12 @@ public class MyAnswer {
 
 		LinkedListNode head = nodes[0];
 		System.out.println(head.printForward());
-		System.out.println(isPalindrome1(head) + " " + isPalindrome2(head));
+		System.out.println(isPalindromeStack(head) + " " + isPalindromeRecursive(head));
 
 		length = 9;
 		nodes = new LinkedListNode[length];
 		for (int i = 0; i < length; i++) {
-			nodes[i] = new LinkedListNode(i >= length / 2 ? length - i - 1 : i,
-					null, null);
+			nodes[i] = new LinkedListNode(i >= length / 2 ? length - i - 1 : i, null, null);
 		}
 
 		for (int i = 0; i < length; i++) {
@@ -109,11 +107,11 @@ public class MyAnswer {
 
 		head = nodes[0];
 		System.out.println(head.printForward());
-		System.out.println(isPalindrome1(head) + " " + isPalindrome2(head));
+		System.out.println(isPalindromeStack(head) + " " + isPalindromeRecursive(head));
 
 		nodes[3].data = 4;
 		System.out.println(head.printForward());
-		System.out.println(isPalindrome1(head) + " " + isPalindrome2(head));
+		System.out.println(isPalindromeStack(head) + " " + isPalindromeRecursive(head));
 
 	}
 }
