@@ -2,7 +2,6 @@ package algo.questions.trees;
 
 import java.util.Stack;
 
-import common.Common;
 import common.TreeNode;
 
 public class BstThreeSumInorder {
@@ -12,14 +11,14 @@ public class BstThreeSumInorder {
 
 		// test 1
 		System.out.println("Test start");
-		TreeNode tree1 = Common.constructBstFromPreorder(new int[] { 4, 2, 1,
+		TreeNode tree1 = TreeNode.constructBstFromPreorder(new int[] { 4, 2, 1,
 				3, 6, 5, 7 });
 		ins.findTriplet(tree1, 14);
 		System.out.println();
 
 		// test 2
 		System.out.println("2nd test");
-		TreeNode tree2 = Common.constructBstFromPreorder(new int[] { 8, 4, 2,
+		TreeNode tree2 = TreeNode.constructBstFromPreorder(new int[] { 8, 4, 2,
 				1, 3, 6, 5, 7, 12, 10, 9, 11, 14, 13, 15 });
 		ins.findTriplet(tree2, 7);
 	}

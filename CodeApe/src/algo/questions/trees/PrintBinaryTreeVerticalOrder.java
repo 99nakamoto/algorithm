@@ -12,7 +12,7 @@ public class PrintBinaryTreeVerticalOrder {
 		PrintBinaryTreeVerticalOrder ins = new PrintBinaryTreeVerticalOrder();
 
 		// test 1
-		TreeNode tree1 = Common.constructBstFromPreorder(new int[] { 4, 2, 1,
+		TreeNode tree1 = TreeNode.constructBstFromPreorder(new int[] { 4, 2, 1,
 				3, 6, 5, 7 });
 		List<List<Integer>> ans1 = ins.printVertically(tree1);
 		for (List<Integer> list : ans1) {
@@ -20,7 +20,7 @@ public class PrintBinaryTreeVerticalOrder {
 		}
 
 		// test 2
-		TreeNode tree2 = Common.constructBstFromPreorder(new int[] { 8, 4, 2,
+		TreeNode tree2 = TreeNode.constructBstFromPreorder(new int[] { 8, 4, 2,
 				1, 3, 6, 5, 7, 12, 10, 9, 11, 14, 13, 15 });
 		List<List<Integer>> ans2 = ins.printVertically(tree1);
 		for (List<Integer> list : ans2) {

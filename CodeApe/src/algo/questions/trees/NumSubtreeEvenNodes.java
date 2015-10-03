@@ -17,7 +17,7 @@ public class NumSubtreeEvenNodes {
 		System.out.println("Test start");
 
 		// the input
-		TreeNode tree = Common.constructBstFromPreorder(new int[] { 4, 2, 1, 3,
+		TreeNode tree = TreeNode.constructBstFromPreorder(new int[] { 4, 2, 1, 3,
 				6, 5, 7 });
 		System.out.println("Input is a BST with this structure: ");
 		Common.printLevelOrder(tree);

@@ -1,6 +1,5 @@
 package algo.questions.trees;
 
-import common.Common;
 import common.TreeNode;
 
 public class InorderSuccessorBST {
@@ -8,7 +7,7 @@ public class InorderSuccessorBST {
 	public static void main(String[] args) {
 		InorderSuccessorBST ins = new InorderSuccessorBST();
 
-		TreeNode tree = Common.constructBstFromPreorder(new int[] { 4, 2, 1, 3,
+		TreeNode tree = TreeNode.constructBstFromPreorder(new int[] { 4, 2, 1, 3,
 				6, 5, 7 });
 
 		System.out.println(ins.inorderSuccessor(tree, tree).val

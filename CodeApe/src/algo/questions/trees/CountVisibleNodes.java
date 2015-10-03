@@ -1,6 +1,5 @@
 package algo.questions.trees;
 
-import common.Common;
 import common.TreeNode;
 
 public class CountVisibleNodes {
@@ -24,7 +23,7 @@ public class CountVisibleNodes {
 	public static void main(String[] args) {
 		CountVisibleNodes ins = new CountVisibleNodes();
 
-		TreeNode root = Common.constructTreeFromPreAndInorder(new int[] { 5, 3,
+		TreeNode root = TreeNode.constructTreeFromPreAndInorder(new int[] { 5, 3,
 				20, 21, 10, 1 }, new int[] { 20, 3, 21, 5, 1, 10 });
 
 		System.out.println(ins.countVisible(root));

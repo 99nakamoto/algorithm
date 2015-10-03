@@ -1,5 +1,4 @@
 package algo.questions.trees;
-import common.Common;
 import common.TreeNode;
 
 public class FindBstCeiling {
@@ -9,7 +8,7 @@ public class FindBstCeiling {
 		long startTime = System.currentTimeMillis();
 
 		System.out.println("Start Run... ");
-		TreeNode tree = Common.constructBstFromPreorder(new int[] { 40, 20, 10,
+		TreeNode tree = TreeNode.constructBstFromPreorder(new int[] { 40, 20, 10,
 				30, 60, 50, 70 });
 		for (int i = 0; i < 100; i++) {
 			System.out.println("The ceiling of " + i + " is  "

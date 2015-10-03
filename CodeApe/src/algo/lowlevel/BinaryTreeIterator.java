@@ -3,7 +3,6 @@ package algo.lowlevel;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 
-import common.Common;
 import common.TreeNode;
 
 public class BinaryTreeIterator {
@@ -42,7 +41,7 @@ public class BinaryTreeIterator {
 
 		// build a BST tree with 7 elements (3 layers)
 		int[] bstInorder = new int[] { 4, 2, 1, 3, 6, 5, 7 };
-		TreeNode root = Common.constructBstFromPreorder(bstInorder);
+		TreeNode root = TreeNode.constructBstFromPreorder(bstInorder);
 
 		// start the iterator of above tree
 		BinaryTreeIterator iter = new BinaryTreeIterator(root);
