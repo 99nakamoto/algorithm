@@ -38,7 +38,7 @@ public class TreeNode {
 	}
 
 	private static TreeNode buildTreeHelper(int[] preorder, int a, int b, int[] inorder, int c, int d) {
-		if (a > b) {
+		if (a > b || a == preorder.length) {
 			return null;
 		}
 		int headVal = preorder[a];
