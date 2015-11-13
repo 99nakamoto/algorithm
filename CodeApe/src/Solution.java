@@ -5,17 +5,18 @@ public class Solution {
 		long startTime = System.currentTimeMillis();
 
 		System.out.println("Start Run... ");
-		ins.solve(Integer.MIN_VALUE);
+		String infix, postfix;
+
+		infix = "";
+		postfix = ins.infixToPostfix(infix);
+		System.out.println(infix);
+		System.out.println(postfix);
 
 		System.out.print("Total time = ");
 		System.out.print((System.currentTimeMillis() - startTime) / 1000.0);
 	}
 
-	public void solve(int A) {
-		System.out.println(A);
-		System.out.println(Integer.toBinaryString(A));
-		System.out.println(A * -1);
-		System.out.println(Integer.toBinaryString(-1 * A));
-		System.out.println(-A);
+	public String infixToPostfix(String infix) {
+		return infix + "d";
 	}
 }
