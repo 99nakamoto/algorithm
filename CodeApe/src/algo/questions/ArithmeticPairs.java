@@ -25,11 +25,14 @@ public class ArithmeticPairs {
 	public int solve(int[] input) {
 		int len = input.length;
 		int p = 0;
+		int totalSlices = 0;
+
 		while (p + 1 < len) {
 			// check if there is a arithmetic sequence starting at p
 			// note that p is NOT the last element.
 			int diff = input[p + 1] - input[p];
 			int q = p + 1;
+
 			// starting from q, check arithmetic difference
 			while (q < len) {
 				if (input[q] - input[q - 1] == diff) {
@@ -38,8 +41,21 @@ public class ArithmeticPairs {
 					break;
 				}
 			}
-			// so, the range [p, q-1] is a arithmetic sequence
+
+			// so, the range [p, q-1] is a arithmetic sequence.
+			int seqLength = q - p;
+			if (seqLength >= 3) {
+				totalSlices += getSlicesCountFromArithmeticSeq(seqLength);
+			}
+
+			// update p (skip the range [p, q-1])
+			p = q - 1;
 		}
-		return 0;
+		return totalSlices;
+	}
+
+	private int getSlicesCountFromArithmeticSeq(int k) {
+		// choose 2 from (k - 1)
+		return (k - 1) * (k - 2) / 2;
 	}
 }
