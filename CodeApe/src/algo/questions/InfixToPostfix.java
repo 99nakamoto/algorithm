@@ -19,10 +19,6 @@ public class InfixToPostfix {
 	}
 
 	public String solve(String infix) {
-		Stack<Character> st1 = new Stack<Character>();
-		Stack<String> st2 = new Stack<String>();
-		
-		
 		return null;
 	}
 }
