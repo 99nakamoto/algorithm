@@ -62,7 +62,7 @@ public class InterleavePositiveNegative {
 					if (pos > right) {
 						break;
 					} else {
-						swap(A, pos, right);
+						Common.swap(A, pos, right);
 					}
 				}
 				return;
@@ -82,19 +82,13 @@ public class InterleavePositiveNegative {
 					if (neg > right) {
 						break;
 					} else {
-						swap(A, neg, right);
+						Common.swap(A, neg, right);
 					}
 				}
 				return;
 			} else {
-				swap(A, neg, pos);
+				Common.swap(A, neg, pos);
 			}
 		}
-	}
-
-	private void swap(int[] array, int a, int b) {
-		int temp = array[a];
-		array[a] = array[b];
-		array[b] = temp;
 	}
 }

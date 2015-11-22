@@ -60,6 +60,12 @@ public class Common {
 		}
 	}
 
+	public static void swap(int[] input, int a, int b) {
+		int temp = input[a];
+		input[a] = input[b];
+		input[b] = temp;
+	}
+
 	public static void printTreeInorder(TreeNode root) {
 		if (root == null) {
 			return;
