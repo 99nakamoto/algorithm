@@ -1,12 +1,14 @@
 Algorithms
 =====
 
-## Content
+# Content
 
-All java codes here are solutions to algorithmic questions.
+Some of my solutions to interesting algorithmic questions, all written in JAVA.
 
-## Note 
+# Setup
 
-This folder contains 3 Eclipse projects. 
+This is not a simple project folder. This folder contains 3 Eclipse projects. 
 
-In Eclipse, create seperate projects for each folder. Enjoy coding! 
+In Eclipse, create seperate projects for each folder. The library dependencies should be all set. 
+
+Enjoy coding! 
