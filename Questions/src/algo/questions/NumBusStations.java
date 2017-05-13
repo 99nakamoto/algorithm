@@ -17,14 +17,17 @@ public class NumBusStations {
 		input.add(new Meeting(4, 7));
 		input.add(new Meeting(2, 6));
 		input.add(new Meeting(6, 10));
-		System.out.println(ins.solve(input));
+		
+		System.out.println("solve1 = " + ins.solve1(input));
+		System.out.println("solve2 = " + ins.solve2(input));
 		System.out.println("==============================");
 
 		System.out.print("Total time = ");
 		System.out.print((System.currentTimeMillis() - startTime) / 1000.0);
 	}
 
-	public int solve(List<Meeting> input) {
+	public int solve1(List<Meeting> input) {
+		// linear solution: sort list of events by mixing start and end time
 		List<Event> events = new ArrayList<Event>();
 		for (Meeting i : input) {
 			events.add(new Event(i.start, 1));
@@ -35,6 +38,7 @@ public class NumBusStations {
 		for (Event e : events) {
 			System.out.print("(" + e.time + ",  " + e.diff + ") ");
 		}
+		System.out.println();
 
 		int currentNeeds = 0;
 		int maxNeeds = 0;
@@ -43,6 +47,12 @@ public class NumBusStations {
 			maxNeeds = Math.max(maxNeeds, currentNeeds);
 		}
 		return maxNeeds;
+	}
+	
+	public int solve2(List<Meeting> input) {
+		// heap solution: sort by end time, and count # of start times
+		// TODO
+		return 1;
 	}
 }
 
