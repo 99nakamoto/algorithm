@@ -13,19 +13,19 @@ public class DutchNationalFlag {
 
 		input = new int[] { 0, 1, 2, 0, 1 };
 		Common.printArray(input);
-		output = ins.solve(input);
+		output = ins.threePointerSort(input);
 		Common.printArray(output);
 		System.out.println();
 
 		input = new int[] { 2, 0, 1, 1, 2, 0, 2 };
 		Common.printArray(input);
-		output = ins.solve(input);
+		output = ins.threePointerSort(input);
 		Common.printArray(output);
 		System.out.println();
 
 		input = new int[] { 1, 2, 0, 0, 1, 0, 2, 2, 2, 0, 2, 0, 1, 1, 0, 2, 1 };
 		Common.printArray(input);
-		output = ins.solve(input);
+		output = ins.threePointerSort(input);
 		Common.printArray(output);
 		System.out.println();
 
@@ -33,11 +33,10 @@ public class DutchNationalFlag {
 		System.out.print((System.currentTimeMillis() - startTime) / 1000.0);
 	}
 
-	public int[] solve(int[] input) {
+	public int[] threePointerSort(int[] input) {
 		if (input == null || input.length <= 1) {
 			return input;
 		}
-
 
 		// left is at the leftmost non-0 position
 		// right is at rightmost non-2
