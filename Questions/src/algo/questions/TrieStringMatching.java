@@ -1,7 +1,8 @@
-public class Template {
+package algo.questions;
+public class TrieStringMatching {
 
 	public static void main(String[] args) {
-		Template ins = new Template();
+		TrieStringMatching ins = new TrieStringMatching();
 		long startTime = System.currentTimeMillis();
 
 		System.out.println("Start Run... ");
@@ -10,7 +11,7 @@ public class Template {
 		System.out.print((System.currentTimeMillis() - startTime) / 1000.0);
 	}
 
-	public void solve(int A) {
+	public void solve( A) {
 
 	}
 }
