@@ -1,6 +1,8 @@
 package common;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class TrieNode {
@@ -44,5 +46,19 @@ public class TrieNode {
 	
 	public boolean isEndOfWord(){
 		return this.isEndOfWord;
+	}
+	
+	// function to print words
+	public List<String> listAllWords() {
+		List<String> allWords = new LinkedList<String>();
+		for (TrieNode child: this.children.values()) {
+			if (child != null) {
+				for (String subword: child.listAllWords()) {
+					allWords.add(this.letter + '-' + subword);
+				}
+			}
+		}
+		
+		return allWords;
 	}
 }
