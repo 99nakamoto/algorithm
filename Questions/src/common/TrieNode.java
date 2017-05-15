@@ -1,7 +1,7 @@
 package common;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +40,12 @@ public class TrieNode {
 		return children.get(letter);
 	}
 	
+	public List<TrieNode> getAllChildren() {
+		List<TrieNode> allChildren = new ArrayList<TrieNode>();
+		allChildren.addAll(children.values());
+		return allChildren;
+	}
+	
 	public char getLetter(){
 		return this.letter;
 	}
@@ -50,7 +56,7 @@ public class TrieNode {
 	
 	// function to print words
 	public List<String> listAllWords() {
-		List<String> allWords = new LinkedList<String>();
+		List<String> allWords = new ArrayList<String>();
 		if (this.isEndOfWord) {
 			allWords.add(this.letter + "");
 		}

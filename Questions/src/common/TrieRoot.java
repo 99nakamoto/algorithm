@@ -29,6 +29,14 @@ public class TrieRoot {
 		return true;
 	}
 	
+	public TrieNode getRoot() {
+		return this.root;
+	}
+	
+	public int getTotalWordCount() {
+		return this.totalWordCount;
+	}
+	
 	public void printTrie() {
 		List<String> allWords = root.listAllWords();
 		Collections.sort(allWords);
