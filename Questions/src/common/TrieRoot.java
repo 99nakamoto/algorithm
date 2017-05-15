@@ -1,5 +1,6 @@
 package common;
 
+import java.util.Collections;
 import java.util.List;
 
 public class TrieRoot {
@@ -10,7 +11,7 @@ public class TrieRoot {
 	
 	// TrieNode constructor
 	public TrieRoot() {
-		root = new TrieNode(' ');
+		root = new TrieNode('*');
 		totalWordCount = 0;
 	}
 
@@ -26,6 +27,8 @@ public class TrieRoot {
 	
 	public void printTrie() {
 		List<String> allWords = root.listAllWords();
+		Collections.sort(allWords);
+		
 		for (String word: allWords) {
 			System.out.println(word);
 		}
@@ -36,7 +39,8 @@ public class TrieRoot {
 		TrieRoot trie = new TrieRoot();
 		trie.addWord("face");
 		trie.addWord("book");
-		trie.addWord("bike");
+		trie.addWord("facebook");
+		trie.addWord("bible");
 		trie.printTrie();
 		System.out.println("end");
 	}

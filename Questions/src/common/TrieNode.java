@@ -51,10 +51,13 @@ public class TrieNode {
 	// function to print words
 	public List<String> listAllWords() {
 		List<String> allWords = new LinkedList<String>();
+		if (this.isEndOfWord) {
+			allWords.add(this.letter + "");
+		}
 		for (TrieNode child: this.children.values()) {
 			if (child != null) {
 				for (String subword: child.listAllWords()) {
-					allWords.add(this.letter + '-' + subword);
+					allWords.add(this.letter + "-" + subword);
 				}
 			}
 		}
