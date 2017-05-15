@@ -1,57 +1,48 @@
 package common;
 
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TrieNode {
-	public char letter;
-	public boolean isEndOfWord;
-	public Set<TrieNode> children;
-
+	
+	// declare private variables
+	private char letter;
+	private boolean isEndOfWord;
+	private Map<Character, TrieNode> children;
+	
+	// TrieNode constructor
 	public TrieNode(char letter) {
 		this.letter = letter;
+		this.children = new HashMap<Character, TrieNode>();
 	}
 
-	public static TrieNode constructBstFromPreorder(int[] preorder) {
-		p = 0;
-		return buildBstHelper(preorder, Integer.MIN_VALUE, Integer.MAX_VALUE);
+	// TrieNode addition function
+	public void addSubword(String word, int index) {
+		if (index == word.length()) {
+			this.isEndOfWord = true;
+			return;
+		}
+		
+		char nextChar = word.charAt(index);
+		if (!this.children.containsKey(nextChar)) {
+			this.children.put(nextChar, new TrieNode(nextChar));
+		}
+		this.children.get(nextChar).addSubword(word, index + 1);
 	}
-
-	private static TrieNode buildBstHelper(int[] A, int min, int max) {
-		int len = A.length;
-		if (p >= len) {
-			return null;
-		} else if (A[p] < min || A[p] > max) {
-			return null;
-		}
-		TrieNode root = new TrieNode(A[p]);
-		p++;
-		root.left = buildBstHelper(A, min, root.val);
-		root.right = buildBstHelper(A, root.val, max);
-		return root;
+	
+	public Boolean hasChild(char letter) {
+		return children.containsKey(letter);
 	}
-
-	public static TrieNode constructTreeFromPreAndInorder(int[] preorder, int[] inorder) {
-		if (preorder == null || inorder == null || preorder.length != inorder.length) {
-			return null;
-		}
-		return buildTreeHelper(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
+	
+	public TrieNode getChild(char letter) {
+		return children.get(letter);
 	}
-
-	private static TrieNode buildTreeHelper(int[] preorder, int a, int b, int[] inorder, int c, int d) {
-		if (a > b || a == preorder.length) {
-			return null;
-		}
-		int headVal = preorder[a];
-		TrieNode head = new TrieNode(headVal);
-		int p = c;
-		while (p <= d) {
-			if (inorder[p] == headVal) {
-				break;
-			}
-			p++;
-		}
-		head.left = buildTreeHelper(preorder, a + 1, a + p - c, inorder, c, p - 1);
-		head.right = buildTreeHelper(preorder, b - d + p + 1, b, inorder, p + 1, d);
-		return head;
+	
+	public char getLetter(){
+		return this.letter;
+	}
+	
+	public boolean isEndOfWord(){
+		return this.isEndOfWord;
 	}
 }
