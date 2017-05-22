@@ -58,17 +58,17 @@ public class TrieStringMatching {
 		System.out.print((System.currentTimeMillis() - startTime) / 1000.0);
 	}
 
+	/*
+	 you are allowed to use the following function:
+	 getRoot()
+	 getChild(node, letter)
+	 getAllChildren(node)
+	 isTerminalNode(node)
+	 */
 	public boolean solve(TrieRoot trie, String word) {
-		// you are allowed to use the following function:
-		// getRoot()
-		// getChild(node, letter)
-		// getAllChildren(node)
-		// isTerminalNode(node)
-		
 		if (word == null || word.length() == 0) {
 			return false;
 		}
-		
 		return matchFromChildren(trie.getRoot(), word, 0);
 	}
 	
