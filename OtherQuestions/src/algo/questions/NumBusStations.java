@@ -2,7 +2,10 @@ package algo.questions;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import common.Common;
 
 public class NumBusStations {
 
@@ -14,9 +17,9 @@ public class NumBusStations {
 		List<Meeting> input = new ArrayList<Meeting>();
 
 		input.add(new Meeting(1, 3));
+		input.add(new Meeting(6, 10));
 		input.add(new Meeting(4, 7));
 		input.add(new Meeting(2, 6));
-		input.add(new Meeting(6, 10));
 		
 		System.out.println("solve1 = " + ins.solve1(input));
 		System.out.println("solve2 = " + ins.solve2(input));
@@ -51,11 +54,20 @@ public class NumBusStations {
 	
 	public int solve2(List<Meeting> input) {
 		// heap solution: sort by end time, and count # of start times
-		// TODO
+		Collections.sort(input, new Comparator<Meeting>() {
+			public int compare(Meeting m0, Meeting m1) {
+			    return m0.end - m1.end;
+			  }
+		});
+		
+		// for a sorted list of meetings (increasing by end time), 
+		// we will put all start time to a heap, and compare with end time
+		// TODO heap
 		return 1;
 	}
 }
 
+// The following helper function is to support solve1()
 class Event implements Comparable<Event> {
 	int time;
 	int diff;
@@ -85,4 +97,9 @@ class Meeting {
 		start = a;
 		end = b;
 	}
+	
+	@Override
+    public String toString() {
+        return "(" + start + ", " + end + ")";
+    }
 }
