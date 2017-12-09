@@ -1,7 +1,7 @@
-public class Template {
+public class aaaTemplate {
 
 	public static void main(String[] args) {
-		Template ins = new Template();
+		aaaTemplate ins = new aaaTemplate();
 		long startTime = System.currentTimeMillis();
 
 		System.out.println("Start Run... ");
